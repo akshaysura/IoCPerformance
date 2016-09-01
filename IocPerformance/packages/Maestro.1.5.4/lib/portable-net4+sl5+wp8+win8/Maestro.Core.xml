@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Maestro.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Maestro.Configuration.IConditionalInstanceExpression`1.Use``1(``0)">
+            <summary>
+            Setup a constant instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IConditionalInstanceExpression`1.Use``1(System.Func{``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConditionalInstanceExpression`1.Use``1(System.Func{Maestro.IContext,``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConditionalInstanceExpression`1.Use``1">
+            <summary>
+            Setup type <typeparamref name="TInstance"/>.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConditionalInstanceExpression`1.Use(System.Type)">
+            <summary>
+            Setup type <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use``1(``0)">
+            <summary>
+            Setup a constant instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use``1(System.Func{``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use``1(System.Func{Maestro.IContext,``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use``1">
+            <summary>
+            Setup type <typeparamref name="TInstance"/>.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use(System.Type)">
+            <summary>
+            Setup type <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.INamedInstanceExpression`1.Use(System.Action{Maestro.Configuration.IConditionalExpression{`0}})">
+            <summary>
+            Used to configure a conditional instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="T:Maestro.Conventions.IConvention">
+            <summary>
+            Base type for conventional registrations.
+            </summary>
+        </member>
+        <member name="M:Maestro.IContainer.Configure(System.Action{Maestro.Configuration.IContainerExpression})">
+            <summary>
+            Adds configuration to the container.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.IContainer.Get(System.Type,System.String)">
+            <summary>
+            Gets an instance of type <paramref name="type"/> named <paramref name="name"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="name">Uses the default instance if a named instance isn't found.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.IContainer.Get``1(System.String)">
+            <summary>
+            Gets an instance of type <typeparamref name="T"/> named <paramref name="name"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name">Uses the default instance if a named instance isn't found.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.IContainer.GetAll(System.Type)">
+            <summary>
+            Gets all instances of type <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.IContainer.GetAll``1">
+            <summary>
+            Gets all instances of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.IContainer.TryGet(System.Type,System.Object@)">
+            <summary>
+            Tries to get instance of type <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <returns></returns>
+            <remarks>Does not swallow any exceptions.</remarks>
+        </member>
+        <member name="M:Maestro.IContainer.TryGet(System.Type,System.String,System.Object@)">
+            <summary>
+            Tries to get instance of type <paramref name="type"/> named <paramref name="name"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="name"></param>
+            <param name="instance"></param>
+            <returns></returns>
+            <remarks>Does not swallow any exceptions.</remarks>
+        </member>
+        <member name="M:Maestro.IContainer.TryGet``1(``0@)">
+            <summary>
+            Tries to get instance of type <typeparam name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+            <remarks>Does not swallow any exceptions.</remarks>
+        </member>
+        <member name="M:Maestro.IContainer.TryGet``1(System.String,``0@)">
+            <summary>
+            Tries to get instance of type <typeparam name="T"/> named <paramref name="name"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="instance"></param>
+            <returns></returns>
+            <remarks>Does not swallow any exceptions.</remarks>
+        </member>
+        <member name="M:Maestro.IContainer.GetConfiguration">
+            <summary>
+            Gets a report of the complete container configuration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Container.#ctor">
+            <summary>
+            Instantiates a new empty container.
+            </summary>
+        </member>
+        <member name="M:Maestro.Container.#ctor(System.Action{Maestro.Configuration.IContainerExpression})">
+            <summary>
+            Instantiates a new container with configuration.
+            </summary>
+        </member>
+        <member name="P:Maestro.Container.Default">
+            <summary>
+            The static default container instance.
+            </summary>
+        </member>
+        <member name="M:Maestro.Configuration.IContainerExpression.For(System.Type)">
+            <summary>
+            Used to configure instance, lifetime, interception etc for default instance of type <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IContainerExpression.For``1">
+            <summary>
+            Used to configure instance, lifetime, interception etc for for default instance of type <typeparamref name="TPlugin"/>.
+            </summary>
+            <typeparam name="TPlugin"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IContainerExpression.For(System.Type,System.String)">
+            <summary>
+            Used to configure instance, lifetime, interception etc for type <paramref name="type"/> named <paramref name="name"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IContainerExpression.For``1(System.String)">
+            <summary>
+            Used to configure instance, lifetime, interception etc for type <typeparamref name="TPlugin"/> named <paramref name="name"/>.
+            </summary>
+            <typeparam name="TPlugin"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Maestro.Configuration.IContainerExpression.Scan">
+            <summary>
+            Used for conventional configuration.
+            </summary>
+        </member>
+        <member name="P:Maestro.Configuration.IContainerExpression.Default">
+            <summary>
+            Used to setup default convention filters, lifetimes etc.
+            </summary>
+        </member>
+        <member name="M:Maestro.Configuration.IDefaultFilterExpression.Add(System.Func{System.Type,System.Boolean})">
+            <summary>
+            Adds <paramref name="predicate"/> to the list of global filters.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IDefaultFilterExpression.Add(Maestro.Conventions.IConventionFilter)">
+            <summary>
+            Adds <paramref name="filter"/> to the list of global filters.
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IDefaultFilterExpression.Clear">
+            <summary>
+            Clears the list of global filters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Maestro.Configuration.IDefaultSettingsExpression.Lifetime">
+            <summary>
+            Uses to configure the default lifetime to use if one isn't explicitly defined.
+            </summary>
+        </member>
+        <member name="P:Maestro.Configuration.IDefaultSettingsExpression.Filters">
+            <summary>
+            Used to configure global filters.
+            </summary>
+        </member>
+        <member name="M:Maestro.Configuration.IConditionalExpression`1.If(System.Func{Maestro.IContext,System.Boolean})">
+            <summary>
+            Used to configure the instance for when <paramref name="predicate"/> is satisfied.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Maestro.Configuration.IConditionalExpression`1.Else">
+            <summary>
+            Used to configure the default instance.
+            </summary>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Assemblies(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Adds all types in <paramref name="assemblies"/> to the list of types to process.
+            </summary>
+            <param name="assemblies"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Assembly(System.Reflection.Assembly)">
+            <summary>
+            Adds all types in <paramref name="assembly"/> to the list of types to process.
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AssemblyContaining``1">
+            <summary>
+            Adds all types in the assembly containing type <typeparamref name="T"/> to the list of types to process.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AssemblyContaining(System.Type)">
+            <summary>
+            Adds all types in the assembly containing type <paramref name="type"/> to the list of types to process.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AssemblyContainingTypeOf(System.Object)">
+            <summary>
+            Adds all types in the assembly containing type of <paramref name="o"/> to the list of types to process.
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Types(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Adds <paramref name="types"/> to the list of types to process.
+            </summary>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Where(System.Func{System.Type,System.Boolean})">
+            <summary>
+            Filter types to those matching <paramref name="predicate"/>.
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Matching(Maestro.Conventions.IConventionFilter)">
+            <summary>
+            Filter types to those matching <paramref name="filter"/>.
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AddConcreteSubClassesOf``1(System.Action{Maestro.Configuration.IInstanceBuilderExpression{``0}})">
+            <summary>
+            Adds concrete sub classes of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AddConcreteSubClassesOf(System.Type,System.Action{Maestro.Configuration.IInstanceBuilderExpression{System.Object}})">
+            <summary>
+            Adds concrete sub classes of <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.AddConcreteClassesClosing(System.Type,System.Action{Maestro.Configuration.IInstanceBuilderExpression{System.Object}})">
+            <summary>
+            Adds implementations of <paramref name="genericTypeDefinition"/>.
+            </summary>
+            <param name="genericTypeDefinition"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.UseDefaultImplementations(System.Action{Maestro.Configuration.IInstanceBuilderExpression{System.Object}})">
+            <summary>
+            Adds default implementations.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IConventionExpression.Using(Maestro.Conventions.IConvention)">
+            <summary>
+            Uses <paramref name="convention"/> to configure the container.
+            </summary>
+            <param name="convention"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Execute(System.Action{`0})">
+            <summary>
+            Adds an action to execute against the instance.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Execute(System.Action{`0,Maestro.IContext})">
+            <summary>
+            Adds an action to execute against the instance.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Intercept(Maestro.Interceptors.IInterceptor)">
+            <summary>
+            Adds <paramref name="interceptor"/> to the pipeline.
+            </summary>
+            <param name="interceptor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Intercept``1(Maestro.Interceptors.IInterceptor{`0,``0})">
+            <summary>
+            Adds <paramref name="interceptor"/> to the pipeline.
+            </summary>
+            <typeparam name="TOut"></typeparam>
+            <param name="interceptor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Intercept``1(System.Func{`0,``0})">
+            <summary>
+            Adds <paramref name="lambda"/> to the pipeline.
+            </summary>
+            <typeparam name="TOut"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Intercept``1(System.Func{`0,Maestro.IContext,``0})">
+            <summary>
+            Adds <paramref name="lambda"/> to the pipeline.
+            </summary>
+            <typeparam name="TOut"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set(System.String)">
+            <summary>
+            Set property <paramref name="property"/>.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <remarks>Throws if the property type can't be resolved.</remarks>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set(System.String,System.Object)">
+            <summary>
+            Set property <paramref name="property"/> with value <paramref name="value"/>.
+            </summary>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set(System.String,System.Func{System.Object})">
+            <summary>
+            Set property <paramref name="property"/> with value from <paramref name="factory"/>.
+            </summary>
+            <param name="property"></param>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set(System.String,System.Func{Maestro.IContext,System.Object})">
+            <summary>
+            Set property <paramref name="property"/> with value from <paramref name="factory"/>.
+            </summary>
+            <param name="property"></param>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Set property <paramref name="property"/>.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="property"></param>
+            <returns></returns>
+            <remarks>Throws if the property type can't be resolved.</remarks>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Set property <paramref name="property"/> with value <paramref name="value"/>.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="property"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Func{``0})">
+            <summary>
+            Set property <paramref name="property"/> with value from <paramref name="factory"/>.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="property"></param>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.Set``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Func{Maestro.IContext,``0})">
+            <summary>
+            Set property <paramref name="property"/> with value from <paramref name="factory"/>.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="property"></param>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.TrySet(System.String)">
+            <summary>
+            Set property <paramref name="property"/> if the property type can be resolved.
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+            <remarks>Does not throw if the property type can't be resolved.</remarks>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceBuilderExpression`1.TrySet``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Set property <paramref name="property"/> if the property type can be resolved.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="property"></param>
+            <returns></returns>
+            <remarks>Does not throw if the property type can't be resolved.</remarks>
+        </member>
+        <member name="P:Maestro.Configuration.IInstanceBuilderExpression`1.Lifetime">
+            <summary>
+            Gives access to full lifetime configuration.
+            </summary>
+        </member>
+        <member name="M:Maestro.Configuration.ILifetimeExpression`1.Transient">
+            <summary>
+            Sets instance lifetime to transient.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.ILifetimeExpression`1.Context">
+            <summary>
+            Sets instance lifetime to one instance per IContext.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.ILifetimeExpression`1.Singleton">
+            <summary>
+            Sets instance lifetime to singleton.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.ILifetimeExpression`1.Use``1">
+            <summary>
+            Use custom lifetime <typeparamref name="TLifetime"/>
+            </summary>
+            <typeparam name="TLifetime"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.ILifetimeExpression`1.Use(Maestro.Lifetimes.ILifetime)">
+            <summary>
+            Use custom lifetime <paramref name="lifetime"/>
+            </summary>
+            <param name="lifetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use``1(``0)">
+            <summary>
+            Setup a constant instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use``1(System.Func{``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use``1(System.Func{Maestro.IContext,``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use``1">
+            <summary>
+            Setup type <typeparamref name="TInstance"/>.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use(System.Type)">
+            <summary>
+            Setup type <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Use(System.Action{Maestro.Configuration.IConditionalExpression{`0}})">
+            <summary>
+            Used to configure a conditional instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add``1(``0)">
+            <summary>
+            Setup a constant instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add``1(System.Func{``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add``1(System.Func{Maestro.IContext,``0})">
+            <summary>
+            Setup <paramref name="lambda"/> to provide the instance.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="lambda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add``1">
+            <summary>
+            Setup type <typeparamref name="TInstance"/>.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add(System.Type)">
+            <summary>
+            Setup type <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.IInstanceExpression`1.Add(System.Action{Maestro.Configuration.IConditionalExpression{`0}})">
+            <summary>
+            Used to configure a conditional instance.
+            </summary>
+            <param name="action"></param>
+        </member>
+    </members>
+</doc>

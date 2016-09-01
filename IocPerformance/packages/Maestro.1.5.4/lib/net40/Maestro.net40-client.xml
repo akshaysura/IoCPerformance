@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Maestro.net40-client</name>
+    </assembly>
+    <members>
+        <member name="M:Maestro.Configuration.ConventionExpressionExtensions.StartupDirectory(Maestro.Configuration.IConventionExpression,System.Nullable{System.Boolean})">
+            <summary>
+            Adds all types from assemblies found in startup directory.
+            </summary>
+            <param name="expression"></param>
+            <param name="includeSubDirectories"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.ConventionExpressionExtensions.Directory(Maestro.Configuration.IConventionExpression,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Adds all types from assemblies found in <paramref name="directory"/>.
+            </summary>
+            <param name="expression"></param>
+            <param name="directory"></param>
+            <param name="includeSubDirectories"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

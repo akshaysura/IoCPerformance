@@ -1,0 +1,2019 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catel.Extensions.Interception</name>
+    </assembly>
+    <members>
+        <member name="F:Catel.Interception.Adapters.InterceptorAdapter._interceptor">
+            <summary>
+            The interceptor
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Adapters.InterceptorAdapter._target">
+            <summary>
+            The target
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Adapters.InterceptorAdapter.#ctor(Catel.Interception.IInterceptor,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Adapters.InterceptorAdapter"/> class.
+            </summary>
+            <param name="interceptor">The interceptor.</param>
+            <param name="target">The target.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Adapters.InterceptorAdapter.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="F:Catel.Interception.Adapters.InvocationAdapter._invocation">
+            <summary>
+                The invocation
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Adapters.InvocationAdapter.#ctor(Castle.DynamicProxy.IInvocation,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Adapters.InvocationAdapter"/> class.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="target">The target.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.Adapters.InvocationAdapter.Arguments">
+            <summary>
+            Gets the arguments.
+            </summary>
+            <value>
+            The arguments.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Adapters.InvocationAdapter.GenericArguments">
+            <summary>
+            Gets the generic arguments.
+            </summary>
+            <value>
+            The generic arguments.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Adapters.InvocationAdapter.Method">
+            <summary>
+            Gets the method.
+            </summary>
+            <value>
+            The method.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Adapters.InvocationAdapter.Proxy">
+            <summary>
+            Gets the proxy.
+            </summary>
+            <value>
+            The proxy.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Adapters.InvocationAdapter.Target">
+            <summary>
+                Gets the target.
+            </summary>
+            <value>
+                The target.
+            </value>
+        </member>
+        <member name="T:Catel.Interception.DoNotInterceptAttribute">
+            <summary>
+              Represents an attribute which indicates that a property or method should not be intercepted.
+            </summary>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.Callback">
+            <summary>
+            Represents the call back implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.Callback.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.Callback" /> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.Callback.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.Callback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.Callback.Action">
+            <summary>
+                Gets the action.
+            </summary>
+            <value>
+                The action.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.Callback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+                Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.CallbackBase">
+            <summary>
+            Represents the call back base class.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.CallbackBase._callback">
+            <summary>
+                The callback
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.CallbackBase.#ctor(System.Action)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.CallbackBase" /> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.CallbackBase.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.CallbackBase"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.CallbackBase.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+                Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.ICallbackVisitor">
+            <summary>
+            The call back visitor interface.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnBeforeCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnInvokeCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnCatchCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnFinallyCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnAfterCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.ICallbackVisitor.Visit(Catel.Interception.Callbacks.OnReturnCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnAfterCallback">
+            <summary>
+            The on after call back implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnAfterCallback.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnAfterCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnAfterCallback.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnAfterCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnAfterCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnBeforeCallback">
+            <summary>
+            Represents the on before call back implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnBeforeCallback.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnBeforeCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnBeforeCallback.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnBeforeCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnBeforeCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnCatchCallback">
+            <summary>
+            Represents the on catch call back implementation.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnCatchCallback._callback">
+            <summary>
+                The callback
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnCatchCallback._callbackWithException">
+            <summary>
+                The callback with exception
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnCatchCallback.#ctor(System.Action{System.Exception})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnCatchCallback" /> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnCatchCallback.#ctor(System.Action{Catel.Interception.IInvocation,System.Exception})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnCatchCallback" /> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">
+                The <paramref name="callback" /> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnCatchCallback.Intercept(Catel.Interception.IInvocation,System.Exception)">
+            <summary>
+                Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="exception">The exception.</param>
+            <exception cref="T:System.ArgumentNullException">
+                The <paramref name="invocation" /> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+                The <paramref name="exception" /> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnCatchCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnFinallyCallback">
+            <summary>
+            Represents the on finally call back implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnFinallyCallback.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnFinallyCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnFinallyCallback.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnFinallyCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnFinallyCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnInvokeCallback">
+            <summary>
+            Represents the on invoke call back implementation.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnInvokeCallback._callback">
+            <summary>
+            The callback
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnInvokeCallback._callbackWithReturn">
+            <summary>
+            The callback with return
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnInvokeCallback.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnInvokeCallback" /> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnInvokeCallback.#ctor(System.Func{Catel.Interception.IInvocation,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnInvokeCallback" /> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnInvokeCallback.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+                Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnInvokeCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.OnReturnCallback">
+            <summary>
+            Represents the on return call back implementation.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnReturnCallback._callback">
+            <summary>
+            The callback
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Callbacks.OnReturnCallback._callbackWithReturn">
+            <summary>
+            The callback with return
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnReturnCallback.#ctor(System.Func{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnReturnCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnReturnCallback.#ctor(System.Func{Catel.Interception.IInvocation,System.Object,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.OnReturnCallback"/> class.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnReturnCallback.Intercept(Catel.Interception.IInvocation,System.Object)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="result">The result.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.OnReturnCallback.Accept(Catel.Interception.Callbacks.ICallbackVisitor)">
+            <summary>
+            Accepts the specified visitor.
+            </summary>
+            <param name="visitor">The visitor.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="visitor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.SelectCallbackVisitor">
+            <summary>
+            Represents the select call back visitor implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.SelectCallbackVisitor" /> class.
+            </summary>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnBeforeCallbackCollection">
+            <summary>
+                Gets the on before callback collection.
+            </summary>
+            <value>
+                The on before callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnInvokeCallbackCollection">
+            <summary>
+                Gets the on invoke callback collection.
+            </summary>
+            <value>
+                The on invoke callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnCatchCallbackCollection">
+            <summary>
+                Gets the on catch callback collection.
+            </summary>
+            <value>
+                The on catch callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnFinallyCallbackCollection">
+            <summary>
+                Gets the on finally callback collection.
+            </summary>
+            <value>
+                The on finally callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnAfterCallbackCollection">
+            <summary>
+                Gets the on after callback collection.
+            </summary>
+            <value>
+                The on after callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Callbacks.SelectCallbackVisitor.OnReturnCallbackCollection">
+            <summary>
+                Gets the on return callback collection.
+            </summary>
+            <value>
+                The on return callback collection.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnBeforeCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnInvokeCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnCatchCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnFinallyCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnAfterCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.SelectCallbackVisitor.Visit(Catel.Interception.Callbacks.OnReturnCallback)">
+            <summary>
+            Visits the specified callback.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Callbacks.CallbackCollection">
+            <summary>
+            Represents a collection of state callbacks.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.CallbackCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.CallbackCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Callbacks.CallbackCollection.#ctor(System.Collections.Generic.IList{Catel.Interception.Callbacks.Callback})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.Callbacks.CallbackCollection" /> class.
+            </summary>
+            <param name="callbacks">The callbacks.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callbacks"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Interceptors.StateInterceptorCollection">
+            <summary>
+            Represents a collection of state interceptors.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptorCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.StateInterceptorCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptorCollection.#ctor(System.Collections.Generic.IList{Catel.Interception.Interceptors.StateInterceptor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.StateInterceptorCollection"/> class.
+            </summary>
+            <param name="stateInterceptors">The state interceptors.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="stateInterceptors"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Interceptors.ContextInterceptor">
+            <summary>
+            Represents the context interceptor implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.ContextInterceptor.#ctor(System.Collections.Generic.IList{Catel.Interception.Interceptors.StateInterceptor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.ContextInterceptor" /> class.
+            </summary>
+            <param name="stateInterceptors">The state interceptors.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="stateInterceptors"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.Interceptors.ContextInterceptor.StateInterceptorCollection">
+            <summary>
+            Gets the state interceptor collection.
+            </summary>
+            <value>
+            The state interceptor collection.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.ContextInterceptor.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.ContextInterceptor.FindStateInterceptorByMemberDefinition(Catel.Interception.IMemberDefinition)">
+            <summary>
+            Finds the state interceptor by method signature.
+            </summary>
+            <param name="definition">The signature.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="definition"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Interceptors.FunctionInterceptor">
+            <summary>
+            Represents the function interceptor implementation.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Interceptors.FunctionInterceptor._action">
+            <summary>
+            The action
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Interceptors.FunctionInterceptor._function">
+            <summary>
+            The function
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.FunctionInterceptor.#ctor(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.FunctionInterceptor"/> class.
+            </summary>
+            <param name="action">The action.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.FunctionInterceptor.#ctor(System.Func{Catel.Interception.IInvocation,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.FunctionInterceptor"/> class.
+            </summary>
+            <param name="function">The function.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="function"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.FunctionInterceptor.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Interceptors.InterceptorBase">
+            <summary>
+            Represents the interceptor base implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnBefore(Catel.Interception.IInvocation)">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="invocation">The invocation.</param>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnInvoke(Catel.Interception.IInvocation)">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnCatch(Catel.Interception.IInvocation,System.Exception)">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnFinally(Catel.Interception.IInvocation)">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="invocation">The invocation.</param>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnAfter(Catel.Interception.IInvocation)">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="invocation">The invocation.</param>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.InterceptorBase.OnReturn(Catel.Interception.IInvocation,System.Object)">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="result">The result.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Catel.Interception.Interceptors.StateInterceptor">
+            <summary>
+            Represents the State interceptor implementation.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Interceptors.StateInterceptor._visitor">
+            <summary>
+            The visitor callback.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.#ctor(Catel.Interception.IMemberDefinition,Catel.Interception.Callbacks.CallbackCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Interceptors.StateInterceptor" /> class.
+            </summary>
+            <param name="memberDefinition">The method signature.</param>
+            <param name="callbacks">The callbacks.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="memberDefinition" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callbacks" /> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.Interceptors.StateInterceptor.CallbackCollection">
+            <summary>
+                Gets the callback collection.
+            </summary>
+            <value>
+                The callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Interceptors.StateInterceptor.MemberDefinition">
+            <summary>
+                Gets the method signature.
+            </summary>
+            <value>
+                The method signature.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Interceptors.StateInterceptor.OnInvokeWasRegistered">
+            <summary>
+                Gets a value indicating whether OnInvoke was registered.
+            </summary>
+            <value>
+                <c>true</c> if OnInvoke was registered; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnBefore(Catel.Interception.IInvocation)">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnInvoke(Catel.Interception.IInvocation)">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnCatch(Catel.Interception.IInvocation,System.Exception)">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="exception">The exception.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="exception"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnFinally(Catel.Interception.IInvocation)">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnAfter(Catel.Interception.IInvocation)">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Interceptors.StateInterceptor.OnReturn(Catel.Interception.IInvocation,System.Object)">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <param name="result">The result.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="invocation"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.IMemberDefinition">
+            <summary>
+            Represents the type member definition interface.
+            </summary>
+        </member>
+        <member name="P:Catel.Interception.IMemberDefinition.Parameters">
+            <summary>
+            Gets the parameters.
+            </summary>
+            <value>
+            The parameters.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IMemberDefinition.MemberName">
+            <summary>
+            Gets the name of the member.
+            </summary>
+            <value>
+            The name of the member.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.IMemberDefinition.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Catel.Interception.IMemberDefinition.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="T:Catel.Interception.MemberDefinition">
+            <summary>
+            This class implements the type member definition interface.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.MemberDefinition.#ctor(System.String,System.Collections.Generic.IList{System.Type})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Catel.Interception.MemberDefinition" /> class.
+            </summary>
+            <param name="memberName">Name of the member.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="memberName"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="parameters"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.MemberDefinition.Parameters">
+            <summary>
+                Gets the parameters.
+            </summary>
+            <value>
+                The parameters.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.MemberDefinition.MemberName">
+            <summary>
+                Gets the name of the member.
+            </summary>
+            <value>
+                The name of the member.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.MemberDefinition.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Catel.Interception.MemberDefinition.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="T:Catel.Interception.Exceptions.ProxyInitializationException">
+            <summary>
+            Exception throwed when the <see cref="T:Catel.Interception.ProxyFactory"/> class can not create a proxy type.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Exceptions.ProxyInitializationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Exceptions.ProxyInitializationException" /> class.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Exceptions.ProxyInitializationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Exceptions.ProxyInitializationException" /> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Catel.Interception.Exceptions.ProxyInitializationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Exceptions.ProxyInitializationException" /> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Catel.Interception.Exceptions.ProxyInitializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Exceptions.ProxyInitializationException" /> class.
+            </summary>
+            <param name="info">The info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Catel.Interception.IProxyFactory">
+            <summary>
+            The proxy factory interface.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified interceptor.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(System.Action{Catel.Interception.IInvocation},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified action.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(System.Func{Catel.Interception.IInvocation,System.Object},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified action.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(``0,Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(``0,System.Action{Catel.Interception.IInvocation},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(``0,System.Func{Catel.Interception.IInvocation,System.Object},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create(System.Type,Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified proxy type.
+            </summary>
+            <param name="proxyType">Type of the proxy.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="proxyType" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.IProxyFactory.Create``1(System.Object[],Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified constructor arguments.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="parameters"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.ProxyFactory">
+            <summary>
+            Class that implements <see cref="T:Catel.Interception.IProxyFactory"/>.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.ProxyFactory._default">
+            <summary>
+            The static instance of the proxy factory.
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.ProxyFactory._proxyGenerator">
+            <summary>
+                The proxy generator
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.ProxyFactory._serviceLocator">
+            <summary>
+            The service locator
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.ProxyFactory._typeFactory">
+            <summary>
+            The type factory
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.#ctor(Catel.IoC.IServiceLocator,Catel.IoC.ITypeFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.ProxyFactory"/> class.
+            </summary>
+            <param name="serviceLocator">The service locator. If <c>null</c>, <see cref="P:Catel.IoC.ServiceLocator.Default" /> will be used.</param>
+            <param name="typeFactory">The type factory. If <c>null</c>, <see cref="P:Catel.IoC.TypeFactory.Default" /> will be used.</param>
+        </member>
+        <member name="P:Catel.Interception.ProxyFactory.Default">
+            <summary>
+            Gets the default instance of the proxy factory..
+            </summary>
+            <value>
+            The default instance.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(System.Action{Catel.Interception.IInvocation},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified action.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(``0,System.Action{Catel.Interception.IInvocation},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(System.Func{Catel.Interception.IInvocation,System.Object},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified action.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(``0,System.Func{Catel.Interception.IInvocation,System.Object},System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="action">The action.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified interceptor.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(``0,Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified target.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="target">The target.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="target" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create(System.Type,Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of <paramref name="proxyType" /> type using the specified proxy type.
+            </summary>
+            <param name="proxyType">Type of the proxy.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="proxyType" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.ProxyFactory.Create``1(System.Object[],Catel.Interception.IInterceptor,System.Type[])">
+            <summary>
+            Creates a proxy instance of the specified proxy type using the specified constructor arguments.
+            </summary>
+            <typeparam name="TProxy">The type of the proxy.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <param name="interceptor">The interceptor.</param>
+            <param name="interfaces">The interfaces.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="parameters"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptor"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Handlers.CallbackHandler`2">
+            <summary>
+            Implements the <see cref="T:Catel.Interception.Handlers.ICallbackHandler`2"/>.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceImplementation">The type of the service implementation.</typeparam>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._interceptorHandler">
+            <summary>
+            The intercetor handler
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._proxyFactory">
+            <summary>
+            The proxy factory
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._target">
+            <summary>
+                The target
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._context">
+            <summary>
+                The context
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._instance">
+            <summary>
+                The instance
+            </summary>
+        </member>
+        <member name="F:Catel.Interception.Handlers.CallbackHandler`2._states">
+            <summary>
+                The _states
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.#ctor(Catel.Interception.Handlers.InterceptorHandler{`0,`1},Catel.Interception.IProxyFactory,Catel.IoC.IServiceLocator,Catel.IoC.ITypeFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Handlers.CallbackHandler`2"/> class.
+            </summary>
+            <param name="interceptorHandler">The intercetor handler.</param>
+            <param name="proxyFactory">The proxy factory. If <c>null</c>, <see cref="P:Catel.Interception.ProxyFactory.Default" /> will be used.</param>
+            <param name="serviceLocator">The service locator. If <c>null</c>, <see cref="P:Catel.IoC.ServiceLocator.Default" /> will be used.</param>
+            <param name="typeFactory">The type factory. If <c>null</c>, <see cref="P:Catel.IoC.TypeFactory.Default" /> will be used.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="interceptorHandler"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Catel.Interception.Handlers.CallbackHandler`2.Callbacks">
+            <summary>
+                Gets the callbacks.
+            </summary>
+            <value>
+                The callbacks.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.CallbackHandler`2.InterceptedMembers">
+            <summary>
+                Gets the intercepted members.
+            </summary>
+            <value>
+                The intercepted members.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.CallbackHandler`2.ImplementedTypes">
+            <summary>
+                Gets the implemented types.
+            </summary>
+            <value>
+                The implemented types.
+            </value>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.And">
+            <summary>
+            Use it if you want to configure interception for another member.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnBefore(System.Action)">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnBefore(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnInvoke(System.Func{Catel.Interception.IInvocation,System.Object})">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnInvoke(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnCatch(System.Action{System.Exception})">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnCatch(System.Action{Catel.Interception.IInvocation,System.Exception})">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnFinally(System.Action)">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnFinally(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnAfter(System.Action)">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnAfter(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnReturn(System.Func{System.Object})">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.OnReturn(System.Func{Catel.Interception.IInvocation,System.Object,System.Object})">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.AddCallBack(Catel.Interception.Callbacks.Callback)">
+            <summary>
+                Adds the specified call back.
+            </summary>
+            <param name="callback">The callback.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="callback"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.CallbackHandler`2.Register">
+            <summary>
+                Registers this instance.
+            </summary>
+            <exception cref="T:Catel.Interception.Exceptions.ProxyInitializationException"></exception>
+        </member>
+        <member name="T:Catel.Interception.Handlers.HandlerBase">
+            <summary>
+            Represents the handler base implementation.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Handlers.HandlerBase.#ctor(System.Type,System.Object,Catel.IoC.IServiceLocator,System.Object,Catel.IoC.ITypeFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Catel.Interception.Handlers.HandlerBase" /> class.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="tag">The tag.</param>
+            <param name="serviceLocator">The service locator. If <c>null</c>, <see cref="P:Catel.IoC.ServiceLocator.Default" /> will be used.</param>
+            <param name="typeFactory">The type factory. If <c>null</c>, <see cref="P:Catel.IoC.TypeFactory.Default" /> will be used.</param>
+            <param name="targetInstanceToUse">The target instance you want use in proxy instanciation.</param>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.ServiceType">
+            <summary>
+            Gets or sets the type of the service.
+            </summary>
+            <value>
+            The type of the service.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.Tag">
+            <summary>
+            Gets or sets the tag.
+            </summary>
+            <value>
+            The tag.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.TypeFactory">
+            <summary>
+                Gets the default <see cref="T:Catel.IoC.ITypeFactory" /> for the application.
+            </summary>
+            <value>
+                The default <see cref="T:Catel.IoC.ITypeFactory" /> instance.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.TargetInstanceToUse">
+            <summary>
+                Gets the specified target instance to use in proxy instanciation.
+            </summary>
+            <value>
+                The specified target instance.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.Container">
+            <summary>
+                Gets the default <see cref="T:Catel.IoC.IServiceLocator" /> for the application.
+            </summary>
+            <value>
+                The default <see cref="T:Catel.IoC.IServiceLocator" /> instance.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.ImplementedTypes">
+            <summary>
+                Gets the implemented types.
+            </summary>
+            <value>
+                The implemented types.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.Callbacks">
+            <summary>
+                Gets the callbacks.
+            </summary>
+            <value>
+                The callbacks.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.Handlers.HandlerBase.InterceptedMembers">
+            <summary>
+                Gets the intercepted members.
+            </summary>
+            <value>
+                The intercepted members.
+            </value>
+        </member>
+        <member name="T:Catel.Interception.Handlers.InterceptorHandler`2">
+            <summary>
+            The <see cref="T:Catel.Interception.Handlers.IInterceptorHandler`2" /> implementation.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceImplementation">The type of the service implementation.</typeparam>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.#ctor(Catel.IoC.IServiceLocator,System.Object,System.Object,Catel.IoC.ITypeFactory)">
+            <summary>
+            Initializes a new instance of the
+            <see>
+            <cref>ProxyClass{TServiceImplementation}</cref>
+            </see>
+            class.
+            </summary>
+            <param name="serviceLocator">The service locator. If <c>null</c>, <see cref="P:Catel.IoC.ServiceLocator.Default" /> will be used.</param>
+            <param name="tag">The tag.</param>
+            <param name="targetInstanceToUse">The target instance you want use in proxy instanciation.</param>
+            <param name="typeFactory">The type factory. If <c>null</c>, <see cref="P:Catel.IoC.TypeFactory.Default" /> will be used.</param>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.Intercept(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.Intercept(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the specified member.
+            </summary>
+            <param name="member">The member.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="member"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptAll">
+            <summary>
+            Intercepts all.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptAllGetters">
+            <summary>
+            Intercepts all getters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptAllSetters">
+            <summary>
+            Intercepts all setters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptAllMembers">
+            <summary>
+            Intercepts all members.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptMethods(System.Linq.Expressions.Expression{System.Action{`0}}[])">
+            <summary>
+            Intercepts the specified methods.
+            </summary>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="methods"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptWhere(System.Func{System.Reflection.MethodInfo,System.Boolean})">
+            <summary>
+            Intercepts the where.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptMethod(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptMethod(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptGetter(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the getter of the specified property.
+            </summary>
+            <param name="property">The getter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.InterceptSetter(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the setter.
+            </summary>
+            <param name="property">The setter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.RegisterProperty(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Collections.Generic.IList{System.Type},System.String)">
+            <summary>
+            Registers the property.
+            </summary>
+            <param name="property">The property.</param>
+            <param name="parameters">The parameters.</param>
+            <param name="prefix">The prefix.</param>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.RegisterMethods(System.Linq.Expressions.MethodCallExpression[])">
+            <summary>
+            Registers the methods.
+            </summary>
+            <param name="methods">The methods.</param>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.RegisterMemberDefinitions(System.Collections.Generic.IEnumerable{Catel.Interception.IMemberDefinition})">
+            <summary>
+            Registers the member definitions.
+            </summary>
+            <param name="memberDefinitions">The member definitions.</param>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.GetMethodsToIntercept(System.Type)">
+            <summary>
+            Gets the methods to intercept.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="type"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.InterceptorHandler`2.CreateCallBackHandler">
+            <summary>
+            Creates the call back handler.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Catel.Interception.Handlers.ICallbackHandler`2">
+            <summary>
+            Interface that describes a single Callback handler.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceImplementation">The type of the service implementation.</typeparam>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.And">
+            <summary>
+            Use it if you want to configure interception for another member.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnBefore(System.Action)">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnBefore(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when before.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnInvoke(System.Func{Catel.Interception.IInvocation,System.Object})">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnInvoke(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when invoke.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnCatch(System.Action{System.Exception})">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnCatch(System.Action{Catel.Interception.IInvocation,System.Exception})">
+            <summary>
+            Called when catch.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnFinally(System.Action)">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnFinally(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when finally.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnAfter(System.Action)">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnAfter(System.Action{Catel.Interception.IInvocation})">
+            <summary>
+            Called when after.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnReturn(System.Func{System.Object})">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.ICallbackHandler`2.OnReturn(System.Func{Catel.Interception.IInvocation,System.Object,System.Object})">
+            <summary>
+            Called when return.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="action"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.Handlers.IInterceptorHandler`2">
+            <summary>
+            Interface that describes a single Interceptor handler.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceImplementation">The type of the service implementation.</typeparam>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.Intercept(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.Intercept(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the specified member.
+            </summary>
+            <param name="member">The member.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="member"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptAll">
+            <summary>
+            Intercepts all.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptAllGetters">
+            <summary>
+            Intercepts all properties getters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptAllSetters">
+            <summary>
+            Intercepts all properties setters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptAllMembers">
+            <summary>
+            Intercepts all members.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptMethods(System.Linq.Expressions.Expression{System.Action{`0}}[])">
+            <summary>
+            Intercepts the specified methods.
+            </summary>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="methods"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptWhere(System.Func{System.Reflection.MethodInfo,System.Boolean})">
+            <summary>
+            Intercepts all members which respect the provided predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptMethod(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptMethod(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptGetter(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the getter of the specified property.
+            </summary>
+            <param name="property">The property.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="property"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Catel.Interception.Handlers.IInterceptorHandler`2.InterceptSetter(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Intercepts the setter of the specified property.
+            </summary>
+            <param name="property">The property.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="property"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Catel.Interception.IInterceptor">
+            <summary>
+            Interface that describes a single interceptor.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.IInterceptor.Intercept(Catel.Interception.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Catel.Interception.IStateInterceptor">
+            <summary>
+            Interface that describes a single State interceptor.
+            </summary>
+        </member>
+        <member name="P:Catel.Interception.IStateInterceptor.CallbackCollection">
+            <summary>
+            Gets the callback collection.
+            </summary>
+            <value>
+            The callback collection.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IStateInterceptor.MemberDefinition">
+            <summary>
+            Gets the member definition.
+            </summary>
+            <value>
+            The member definition.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IStateInterceptor.OnInvokeWasRegistered">
+            <summary>
+            Gets a value indicating whether on invoke was registered.
+            </summary>
+            <value>
+            <c>true</c> if on invoke was registered; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Catel.Interception.IInvocation">
+            <summary>
+            Interface that describes a single invocation.
+            </summary>
+        </member>
+        <member name="P:Catel.Interception.IInvocation.Proxy">
+            <summary>
+            Gets the proxy.
+            </summary>
+            <value>
+            The proxy.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IInvocation.Target">
+            <summary>
+            Gets the target.
+            </summary>
+            <value>
+            The target.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IInvocation.Method">
+            <summary>
+            Gets the method.
+            </summary>
+            <value>
+            The method.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IInvocation.Arguments">
+            <summary>
+            Gets the arguments.
+            </summary>
+            <value>
+            The arguments.
+            </value>
+        </member>
+        <member name="P:Catel.Interception.IInvocation.GenericArguments">
+            <summary>
+            Gets the generic arguments.
+            </summary>
+            <value>
+            The generic arguments.
+            </value>
+        </member>
+        <member name="T:Catel.Interception.Utilities.Confirm">
+            <summary>
+            The assertions helper.
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Func{System.Boolean})">
+            <summary>
+            Assertions the specified predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Func{System.Boolean},System.String)">
+            <summary>
+            Assertions the specified predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Func{System.Boolean},System.Exception)">
+            <summary>
+            Assertions the specified predicate.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Boolean)">
+            <summary>
+            Assertions the specified condition.
+            </summary>
+            <param name="condition">if set to <c>true</c> condition.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Boolean,System.String)">
+            <summary>
+            Assertions the specified condition.
+            </summary>
+            <param name="condition">if set to <c>true</c> condition.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Confirm.Assertion(System.Boolean,System.Exception)">
+            <summary>
+            Assertions the specified condition.
+            </summary>
+            <param name="condition">if set to <c>true</c> condition.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="T:Catel.Interception.Utilities.Require">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Require.OverridableMethod(System.Linq.Expressions.MethodCallExpression)">
+            <summary>
+            Overridables the method.
+            </summary>
+            <param name="expression">The expression.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Require.OverridableProperty``1(System.String)">
+            <summary>
+            Overridables the property.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="property">The property.</param>
+        </member>
+        <member name="M:Catel.Interception.Utilities.Require.OverridableProperty(System.Type,System.String)">
+            <summary>
+            Overridables the property.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="property">The property.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:Catel.ExtensionsInterceptionModule">
+            <summary>
+            Extensions.Interception module which allows the registration of default services in the service locator.
+            </summary>
+        </member>
+        <member name="M:Catel.ExtensionsInterceptionModule.Initialize(Catel.IoC.IServiceLocator)">
+            <summary>
+            Initializes the specified service locator.
+            </summary>
+            <param name="serviceLocator">The service locator.</param>
+        </member>
+        <member name="T:Catel.EnumerableExtensions">
+            <summary>
+            The <see cref="T:System.Collections.Generic.IEnumerable`1"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Catel.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Fors the each.
+            </summary>
+            <typeparam name="TItem">The type of the item.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="T:Catel.ExpressionExtensions">
+            <summary>
+            The <see cref="T:System.Linq.Expressions.Expression`1"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Catel.ExpressionExtensions.GetMethodExpression``1(System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Gets the method expression.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method">The method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="method"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Method call expected</exception>
+        </member>
+        <member name="M:Catel.ExpressionExtensions.GetMethodExpression``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Gets the method expression.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="expression"/> is <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException">Method expected:  + expression.Body</exception>
+        </member>
+        <member name="M:Catel.ExpressionExtensions.GetMemberExpression``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Gets the member expression.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="expression"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Property expected</exception>
+        </member>
+        <member name="T:Catel.Reflection.MethodInfoExtensions">
+            <summary>
+            The <see cref="T:System.Reflection.MethodInfo"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.SelectOverridableMethods(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
+            <summary>
+            Selects the overridable methods.
+            </summary>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.SelectGetters(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
+            <summary>
+            Selects the getters.
+            </summary>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.SelectSetters(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
+            <summary>
+            Selects the setters.
+            </summary>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.GetMethodParameterTypes(System.Reflection.MethodInfo)">
+            <summary>
+            Gets the method parameter types.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.ExtractDefinition(System.Reflection.MethodInfo)">
+            <summary>
+            Extracts the definition.
+            </summary>
+            <param name="info">The info.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Catel.Reflection.MethodInfoExtensions.GetMethodsToIntercept(System.Type)">
+            <summary>
+            Gets the methods to intercept.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Catel.ServiceLocatorExtensions">
+            <summary>
+            The <see cref="T:Catel.IoC.IServiceLocator"/> extensions.
+            </summary>
+        </member>
+        <member name="M:Catel.ServiceLocatorExtensions.ConfigureInterceptionForType``2(Catel.IoC.IServiceLocator,System.Object,System.Object)">
+            <summary>
+            Configures the type of the interception for.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceImplementation">The type of the service implementation.</typeparam>
+            <param name="serviceLocator">The service locator.</param>
+            <param name="tag">The tag.</param>
+            <param name="targetInstanceToUse">The target instance you want use in proxy instanciation.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Catel.Extensions.Interception.ModuleInitializer">
+            <summary>
+            Used by the ModuleInit. All code inside the Initialize method is ran as soon as the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:Catel.Extensions.Interception.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="T:Catel.It">
+            <summary>
+            The class which helps to get default value of types.
+            </summary>
+        </member>
+        <member name="M:Catel.It.IsAny``1">
+            <summary>
+            Returns any instance.
+            </summary>
+            <typeparam name="T">The specified type.</typeparam>
+            <returns>The default value.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2769 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MugenInjection.Interception</name>
+    </assembly>
+    <members>
+        <member name="T:MugenInjection.Activators.InterceptorActivator">
+            <summary>
+            Represents the activator that use proxy to activate object.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Activators.InterceptorActivator.#ctor(MugenInjection.Interface.IActivator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Activators.InterceptorActivator"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Activators.InterceptorActivator.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Activators.InterceptorActivator.Activate(System.Reflection.ConstructorInfo,MugenInjection.Interface.IBindingContext)">
+            <summary>
+            Creates new instance of the specified service, and injects values into properties, fields, methods.
+            </summary>
+            <param name="constructorInfo">The specified <see cref="T:System.Reflection.ConstructorInfo"/>.</param>
+            <param name="bindingContext">The specified <see cref="T:MugenInjection.Interface.IBindingContext"/>.</param>
+            <returns>An instance of the service.</returns>
+        </member>
+        <member name="M:MugenInjection.Activators.InterceptorActivator.Activate``1(``0@,MugenInjection.Interface.IBindingContext)">
+            <summary>
+            Injects values into properties, fields, methods in the specified object.
+            </summary>
+            <param name="target">The specified target for inject.</param>
+            <param name="context">The specified <see cref="T:MugenInjection.Interface.IBindingContext"/>.</param>
+        </member>
+        <member name="P:MugenInjection.Activators.InterceptorActivator.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.#ctor(MugenInjection.Interface.IBindingBuilder,System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.#ctor(MugenInjection.Interface.IBinding,MugenInjection.Interface.IBindingBuilder,System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.#ctor(MugenInjection.Syntax.Type.ITypeCallbackConstructorObjectPriorityScopeUseWhenWithSyntax,System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.#ctor(MugenInjection.Syntax.Type.ITypeCallbackConstructorObjectPriorityScopeUseWhenWithSyntax{`0},System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Interface#IBindingBuilder#Build">
+            <summary>
+            Builds the current <see cref="T:MugenInjection.Interface.IBindingBuilder"/>.
+            </summary>
+            <returns>The builded <see cref="T:MugenInjection.Interface.IBinding"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax{T}#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax{T}#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax{T}#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Constant#IConstantObjectSyntax{T}#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax{T}#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax{T}#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax{T}#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodObjectSyntax{T}#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax#OnActivated(System.Action{System.Object})">
+            <summary>
+                Indicates that the binding should executes callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax#OnActivated(MugenInjection.Delegates.BindingActivatedDelegate{System.Object})">
+            <summary>
+            Execute callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax#OnDisposed(System.Action{MugenInjection.Interface.IBinding})">
+            <summary>
+            Execute callback method after binding disposed.
+            </summary>
+            <param name="onDisposed">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax#OnReleaseObject(System.Action{System.Object,System.Boolean})">
+            <summary>
+                Executes the callback that should be called before instances are released.
+            </summary>
+            <param name="onReleaseObject">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax#OnActivating(System.Action{MugenInjection.Interface.IBindingContext})">
+            <summary>
+            Execute callback method before binding activated.
+            </summary>
+            <param name="onActivating">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax{T}#OnActivated(System.Action{`0})">
+            <summary>
+                Indicates that the binding should executes callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax{T}#OnActivated(MugenInjection.Delegates.BindingActivatedDelegate{`0})">
+            <summary>
+            Execute callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax{T}#OnDisposed(System.Action{MugenInjection.Interface.IBinding})">
+            <summary>
+            Execute callback method after binding disposed.
+            </summary>
+            <param name="onDisposed">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax{T}#OnReleaseObject(System.Action{`0,System.Boolean})">
+            <summary>
+                Executes the callback that should be called before instances are released.
+            </summary>
+            <param name="onReleaseObject">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodCallbackSyntax{T}#OnActivating(System.Action{MugenInjection.Interface.IBindingContext})">
+            <summary>
+            Execute callback method before binding activated.
+            </summary>
+            <param name="onActivating">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax#UseEmitActivator">
+            <summary>
+            Use emit activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax#UseExpressionActivator">
+            <summary>
+            Use expression activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax#UseCustomActivator(MugenInjection.Interface.IActivator)">
+            <summary>
+            Use custom activator for activate instance.
+            </summary>
+            <param name="activator">The specified <see cref="T:MugenInjection.Interface.IActivator"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax#UseCustomActivator(System.Func{MugenInjection.Interface.IActivator})">
+            <summary>
+            Use custom activator for activate instance.
+            </summary>
+            <param name="methodActivator">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax#UseReflectionActivator">
+            <summary>
+            Use reflection activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax{T}#UseEmitActivator">
+            <summary>
+            Use emit activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax{T}#UseCustomActivator(MugenInjection.Interface.IActivator)">
+            <summary>
+            Use custom activator for activate instance.
+            </summary>
+            <param name="activator">The specified <see cref="T:MugenInjection.Interface.IActivator"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax{T}#UseExpressionActivator">
+            <summary>
+            Use expression activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax{T}#UseCustomActivator(System.Func{MugenInjection.Interface.IActivator})">
+            <summary>
+            Use custom activator for activate instance.
+            </summary>
+            <param name="methodActivator">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodUseSyntax{T}#UseReflectionActivator">
+            <summary>
+            Use reflection activator for activate instance.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithConstructorArgument(System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified constructor argument.
+            </summary>
+            <param name="name">The specified parameter name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithMethodArgument(System.String,System.String,System.Object)">
+            <summary>
+            Use specified method argument.
+            </summary>
+            <param name="methodName">The specified method name.</param>
+            <param name="name">The specified parameter name.</param>
+            <param name="value">The specified parameter value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithMethodArgument(System.String,System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified method argument.
+            </summary>
+            <param name="methodName"></param>
+            <param name="name">The specified parameter name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithPropertyValue(System.String,System.Object)">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="name">The specified property name.</param>
+            <param name="value">The specified property value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithPropertyValue(System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="name">The specified property name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithParameter(MugenInjection.Interface.IInjectionParameter)">
+            <summary>
+            Use specified custom argument.
+            </summary>
+            <param name="parameter">The specified <see cref="T:MugenInjection.Interface.IInjectionParameter"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax#WithConstructorArgument(System.String,System.Object)">
+            <summary>
+            Use specified constructor argument.
+            </summary>
+            <param name="name">The specified parameter name.</param>
+            <param name="value">The specified parameter value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax{T}#WithMethodArguments(System.Linq.Expressions.Expression{System.Action{MugenInjection.Infrastructure.ResolveContext,`0}})">
+            <summary>
+            Use specified method arguments.
+            </summary>
+            <param name="methodCall">The specified method call expression.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax{T}#WithPropertyValue``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="property">The property accesss expression.</param>
+            <param name="value">The specified property value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax{T}#WithConstructorArguments(System.Linq.Expressions.Expression{System.Func{MugenInjection.Infrastructure.ResolveContext,`0}})">
+            <summary>
+            Indicates that the service should be use specified method arguments.
+            </summary>
+            <param name="constructorCall">The specified new instance expression.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Method#IMethodWithSyntax{T}#WithParameter(MugenInjection.Interface.IInjectionParameter)">
+            <summary>
+            Use specified custom argument.
+            </summary>
+            <param name="parameter">The specified <see cref="T:MugenInjection.Interface.IInjectionParameter"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax{T}#NamedBinding(System.String)">
+            <summary>
+            Indicates that the binding should be registered with the specified name. Names are not
+            necessarily unique; multiple bindings for a given service may be registered with the same name.
+            </summary>
+            <param name="name">The name to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax{T}#KeyedBinding(System.Object)">
+            <summary>
+            Indicates that the binding should be registered with the specified key. Keys are not
+            necessarily unique; multiple bindings for a given service may be registered with the same key.
+            </summary>
+            <param name="key">The key to give the binding.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax{T}#WithSetting(System.String,System.Object)">
+            <summary>
+            The specified setting for build binding.
+            </summary>
+            <param name="key">Setting name.</param>
+            <param name="value">Setting value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeObjectSyntax{T}#TryDisposeObjects">
+            <summary>
+            Try to dispose the object after binding disposed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax#OnActivating(System.Action{MugenInjection.Interface.IBindingContext})">
+            <summary>
+            Execute callback method before binding activated.
+            </summary>
+            <param name="onActivating">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax#OnActivated(System.Action{System.Object})">
+            <summary>
+                Indicates that the binding should executes callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax#OnActivated(MugenInjection.Delegates.BindingActivatedDelegate{System.Object})">
+            <summary>
+            Execute callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax#OnReleaseObject(System.Action{System.Object,System.Boolean})">
+            <summary>
+                Executes the callback that should be called before instances are released.
+            </summary>
+            <param name="onReleaseObject">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax#OnDisposed(System.Action{MugenInjection.Interface.IBinding})">
+            <summary>
+            Execute callback method after binding disposed.
+            </summary>
+            <param name="onDisposed">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax{T}#OnActivated(MugenInjection.Delegates.BindingActivatedDelegate{`0})">
+            <summary>
+            Execute callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax{T}#OnActivated(System.Action{`0})">
+            <summary>
+                Indicates that the binding should executes callback method after binding activated.
+            </summary>
+            <param name="onActivated">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax{T}#OnDisposed(System.Action{MugenInjection.Interface.IBinding})">
+            <summary>
+            Execute callback method after binding disposed.
+            </summary>
+            <param name="onDisposed">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax{T}#OnReleaseObject(System.Action{`0,System.Boolean})">
+            <summary>
+                Executes the callback that should be called before instances are released.
+            </summary>
+            <param name="onReleaseObject">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeCallbackSyntax{T}#OnActivating(System.Action{MugenInjection.Interface.IBindingContext})">
+            <summary>
+            Execute callback method before binding activated.
+            </summary>
+            <param name="onActivating">The specified callback method.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.TakeConstructor(System.Type[])">
+            <summary>
+            Indicates that the service should be bound to the specified constructor.
+            </summary>
+            <param name="types">The specified parameters for search constructor.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax#TakeConstructor``1">
+            <summary>
+            Indicates that the service should be bound to the speecified constructor.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax#TakeConstructor``2">
+            <summary>
+            Indicates that the service should be bound to the speecified constructor.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax#TakeConstructor``3">
+            <summary>
+            Indicates that the service should be bound to the speecified constructor.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax#TakeConstructor``4">
+            <summary>
+            Indicates that the service should be bound to the speecified constructor.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax#TakeConstructor``5">
+            <summary>
+            Indicates that the service should be bound to the speecified constructor.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax{T}#TakeConstructor(System.Linq.Expressions.Expression{System.Func{MugenInjection.Infrastructure.ResolveContext,`0}})">
+            <summary>
+            Use specified constructor.
+            </summary>
+            <param name="constructor">The constructor expression.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeConstructorSyntax{T}#TakeConstructor(System.Type[])">
+            <summary>
+            Indicates that the service should be bound to the specified constructor.
+            </summary>
+            <param name="types">The specified parameters for search constructor.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax#SetPriority(MugenInjection.Infrastructure.BindingPriority)">
+            <summary>
+            Manual set priority for binding.
+            </summary>
+            <param name="priority">The specified <see cref="T:MugenInjection.Infrastructure.BindingPriority"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax#SetStandardPriority">
+            <summary>
+            Set standard priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax#SetLowPriority">
+            <summary>
+            Set low priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax#SetNormalPriority">
+            <summary>
+            Set normal priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax#SetHighPriority">
+            <summary>
+            Set high priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax{T}#SetStandardPriority">
+            <summary>
+            Set standard priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax{T}#SetLowPriority">
+            <summary>
+            Set low priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax{T}#SetNormalPriority">
+            <summary>
+            Set normal priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax{T}#SetHighPriority">
+            <summary>
+            Set high priority for binding.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypePrioritySyntax{T}#SetPriority(MugenInjection.Infrastructure.BindingPriority)">
+            <summary>
+            Manual set priority for binding.
+            </summary>
+            <param name="priority">The specified <see cref="T:MugenInjection.Infrastructure.BindingPriority"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InScope(MugenInjection.Delegates.CustomScopeDelegate)">
+            <summary>
+             Indicates that instances activated via the custom lifecycle managment.
+            </summary>
+            <param name="customScopeDelegate">The specified <see cref="T:MugenInjection.Delegates.CustomScopeDelegate"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InScope(MugenInjection.Interface.IScopeLifecycle)">
+            <summary>
+             Indicates that instances activated via the specified lifecycle
+            </summary>
+            <param name="scopeLifecycle">The specified <see cref="T:MugenInjection.Interface.IScopeLifecycle"/>. </param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InSingletonScope">
+            <summary>
+            Indicates that only a single instance of the binding should be created, and then
+            should be re-used for all subsequent requests.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InThreadScope">
+            <summary>
+            Indicates that instances activated via the binding should be re-used within the same thread.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InTransientScope">
+            <summary>
+            Indicates that instances activated via the binding should not be re-used, nor have their lifecycle managed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InUnitOfWorkScope">
+            <summary>
+            Indicates that only a single instance of the binding should be created in each <see cref="T:MugenInjection.Interface.IInjector"/>, and then
+            should be re-used for all subsequent requests. 
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InManagedScope">
+            <summary>
+             Indicates that instances activated via the <see cref="T:MugenInjection.Interface.IManagedScope"/> lifecycle managment.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax#InWeakReferenceScope">
+            <summary>
+            Indicates that instances activated via the binding should be re-used as weak reference.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InScope(MugenInjection.Interface.IScopeLifecycle)">
+            <summary>
+             Indicates that instances activated via the specified lifecycle
+            </summary>
+            <param name="scopeLifecycle">The specified <see cref="T:MugenInjection.Interface.IScopeLifecycle"/>. </param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InSingletonScope">
+            <summary>
+            Indicates that only a single instance of the binding should be created, and then
+            should be re-used for all subsequent requests.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InThreadScope">
+            <summary>
+            Indicates that instances activated via the binding should be re-used within the same thread.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InTransientScope">
+            <summary>
+            Indicates that instances activated via the binding should not be re-used, nor have their lifecycle managed.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InUnitOfWorkScope">
+            <summary>
+            Indicates that only a single instance of the binding should be created in each <see cref="T:MugenInjection.Interface.IInjector"/>, and then
+            should be re-used for all subsequent requests. 
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InManagedScope">
+            <summary>
+             Indicates that instances activated via the <see cref="T:MugenInjection.Interface.IManagedScope"/> lifecycle managment.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InScope(MugenInjection.Delegates.CustomScopeDelegate)">
+            <summary>
+             Indicates that instances activated via the custom lifecycle managment.
+            </summary>
+            <param name="customScopeDelegate">The specified <see cref="T:MugenInjection.Delegates.CustomScopeDelegate"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeScopeSyntax{T}#InWeakReferenceScope">
+            <summary>
+            Indicates that instances activated via the binding should be re-used as weak reference.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseReflectionActivator">
+            <summary>
+            Use reflection activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseEmitActivator">
+            <summary>
+            Use emit activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseExpressionActivator">
+            <summary>
+            Use expression activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseCustomActivator(MugenInjection.Interface.IActivator)">
+            <summary>
+            Use custom activator for create new instance of object.
+            </summary>
+            <param name="activator">The specified <see cref="T:MugenInjection.Interface.IActivator"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseCustomActivator(System.Func{MugenInjection.Interface.IActivator})">
+            <summary>
+            Use custom activator for create new instance of object.
+            </summary>
+            <param name="methodActivator">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseCustomConstructorResolver(MugenInjection.Interface.IConstructorResolver)">
+            <summary>
+            Use custom constructor resolver for select constructor for specified service.
+            </summary>
+            <param name="constructorResolver">The specified <see cref="T:MugenInjection.Interface.IConstructorResolver"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax#UseCustomConstructorResolver(System.Func{MugenInjection.Interface.IConstructorResolver})">
+            <summary>
+            Use custom constructor resolver for select constructor for specified service.
+            </summary>
+            <param name="constructorResolver">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseEmitActivator">
+            <summary>
+            Use emit activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseExpressionActivator">
+            <summary>
+            Use expression activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseCustomActivator(MugenInjection.Interface.IActivator)">
+            <summary>
+            Use custom activator for create new instance of object.
+            </summary>
+            <param name="activator">The specified <see cref="T:MugenInjection.Interface.IActivator"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseCustomActivator(System.Func{MugenInjection.Interface.IActivator})">
+            <summary>
+            Use custom activator for create new instance of object.
+            </summary>
+            <param name="methodActivator">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseCustomConstructorResolver(MugenInjection.Interface.IConstructorResolver)">
+            <summary>
+            Use custom constructor resolver for select constructor for specified service.
+            </summary>
+            <param name="constructorResolver">The specified <see cref="T:MugenInjection.Interface.IConstructorResolver"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseCustomConstructorResolver(System.Func{MugenInjection.Interface.IConstructorResolver})">
+            <summary>
+            Use custom constructor resolver for select constructor for specified service.
+            </summary>
+            <param name="constructorResolver">The specified <see cref="T:System.Func`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeUseSyntax{T}#UseReflectionActivator">
+            <summary>
+            Use reflection activator for create new instance of object.
+            </summary>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#When(MugenInjection.Delegates.CanResolveBindingDelegate)">
+            <summary>
+            Indicates that the binding should be used only for requests that support the specified condition.
+            </summary>
+            <param name="canResolveBindingDelegate">The specified <see cref="T:MugenInjection.Delegates.CanResolveBindingDelegate"/></param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenInto(System.Type)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type.
+            Types that derive from the specified type will not be considered as valid target.
+            </summary>
+            <param name="type">The type of target.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenInto``1">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type <see cref="!:TType"/>.
+            Types that derive from the specified type will not be considered as valid target.
+            </summary>
+            <typeparam name="TType">The type of target.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenIntoIsAssignable(System.Type)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type.
+            Types that derive from the specified type are considered as valid targets.
+            </summary>
+            <param name="type">The type of target.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenIntoIsAssignable``1">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type <see cref="!:TType"/>.
+            Types that derive from the specified type are considered as valid targets.
+            </summary>
+            <typeparam name="TType">The type of target.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenNamespaceEqual(System.String)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type when namespace equals.
+            </summary>
+            <param name="name">The name of namespace.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenClassHasAttribute(System.Type)">
+            <summary>
+            Indicates that the binding should be used only when the class being injected has
+            an attribute of the specified type.
+            </summary>
+            <param name="attributeType">The type of attribute.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax#WhenClassHasAttribute``1">
+            <summary>
+            Indicates that the binding should be used only when the class being injected has
+            an attribute of the specified type.
+            </summary>
+            <typeparam name="TAttribute">The type of attribute.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenInto(System.Type)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type.
+            Types that derive from the specified type will not be considered as valid target.
+            </summary>
+            <param name="type">The type of target.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenInto``1">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type <see cref="!:TType"/>.
+            Types that derive from the specified type will not be considered as valid target.
+            </summary>
+            <typeparam name="TType">The type of target.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenIntoIsAssignable(System.Type)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type.
+            Types that derive from the specified type are considered as valid targets.
+            </summary>
+            <param name="type">The type of target.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenIntoIsAssignable``1">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type <see cref="!:TType"/>.
+            Types that derive from the specified type are considered as valid targets.
+            </summary>
+            <typeparam name="TType">The type of target.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenNamespaceEqual(System.String)">
+            <summary>
+            Indicates that the binding should be used only for injections on the specified type when namespace equals.
+            </summary>
+            <param name="name">The name of namespace.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenClassHasAttribute(System.Type)">
+            <summary>
+            Indicates that the binding should be used only when the class being injected has
+            an attribute of the specified type.
+            </summary>
+            <param name="attributeType">The type of attribute.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#WhenClassHasAttribute``1">
+            <summary>
+            Indicates that the binding should be used only when the class being injected has
+            an attribute of the specified type.
+            </summary>
+            <typeparam name="TAttribute">The type of attribute.</typeparam>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWhenSyntax{T}#When(MugenInjection.Delegates.CanResolveBindingDelegate)">
+            <summary>
+            Indicates that the binding should be used only for requests that support the specified condition.
+            </summary>
+            <param name="canResolveBindingDelegate">The specified <see cref="T:MugenInjection.Delegates.CanResolveBindingDelegate"/></param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithConstructorArgument(System.String,System.Object)">
+            <summary>
+            Use specified constructor argument.
+            </summary>
+            <param name="name">The specified parameter name.</param>
+            <param name="value">The specified parameter value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithConstructorArgument(System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified constructor argument.
+            </summary>
+            <param name="name">The specified parameter name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithMethodArgument(System.String,System.String,System.Object)">
+            <summary>
+            Use specified method argument.
+            </summary>
+            <param name="methodName">The specified method name.</param>
+            <param name="name">The specified parameter name.</param>
+            <param name="value">The specified parameter value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithMethodArgument(System.String,System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified method argument.
+            </summary>
+            <param name="methodName"></param>
+            <param name="name">The specified parameter name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithPropertyValue(System.String,System.Object)">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="name">The specified property name.</param>
+            <param name="value">The specified property value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithPropertyValue(System.String,MugenInjection.Delegates.ParameterDelegate{System.Object})">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="name">The specified property name.</param>
+            <param name="parameterDelegate">The specified <see cref="T:MugenInjection.Delegates.ParameterDelegate`1"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax#WithParameter(MugenInjection.Interface.IInjectionParameter)">
+            <summary>
+            Use specified custom argument.
+            </summary>
+            <param name="parameter">The specified <see cref="T:MugenInjection.Interface.IInjectionParameter"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax{T}#WithConstructorArguments(System.Linq.Expressions.Expression{System.Func{MugenInjection.Infrastructure.ResolveContext,`0}})">
+            <summary>
+            Use specified method arguments.
+            </summary>
+            <param name="constructorCall">The specified new instance expression.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax{T}#WithPropertyValue``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Use specified propety argument.
+            </summary>
+            <param name="property">The property accesss expression.</param>
+            <param name="value">The specified property value.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax{T}#WithMethodArguments(System.Linq.Expressions.Expression{System.Action{MugenInjection.Infrastructure.ResolveContext,`0}})">
+            <summary>
+            Use specified method arguments.
+            </summary>
+            <param name="methodCall">The specified method call expression.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.MugenInjection#Syntax#Type#ITypeWithSyntax{T}#WithParameter(MugenInjection.Interface.IInjectionParameter)">
+            <summary>
+            Use specified custom argument.
+            </summary>
+            <param name="parameter">The specified <see cref="T:MugenInjection.Interface.IInjectionParameter"/>.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.Injector">
+            <summary>
+            Gets the <see cref="T:MugenInjection.Interface.IInjector"/> that owns the <see cref="T:MugenInjection.Interface.IBindingBuilder"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.Services">
+            <summary>
+            Gets the specified service types. 
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.Settings">
+            <summary>
+            Gets the settings for the current <see cref="T:MugenInjection.Interface.IBindingBuilder"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Bindings.Builders.InterceptorBindingBuilder`1.IsConfiguring">
+            <summary>
+                Indicates that the binding builder is configuring.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Bindings.InterceptorBinding">
+            <summary>
+            Represent the interceptor binding.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Bindings.InterceptorBinding.#ctor(MugenInjection.Interface.IBinding,MugenInjection.Interface.IBinding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Bindings.InterceptorBinding"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Bindings.InterceptorBinding.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Bindings.InterceptorBinding.CanResolve(MugenInjection.Interface.IBindingContext)">
+            <summary>
+            Determines whether the specified request can be resolved.
+            </summary>
+            <param name="bindingContext">The specified <see cref="T:MugenInjection.Interface.IBindingContext"/>.</param>
+            <returns><c>True</c> if the specified service has been resolved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MugenInjection.Bindings.InterceptorBinding.Resolve(MugenInjection.Interface.IBindingContext)">
+            <summary>
+            Resolve instance for the specified <see cref="T:MugenInjection.Interface.IBindingContext"/>.
+            </summary>
+            <param name="bindingContext">The specified <see cref="T:MugenInjection.Interface.IBindingContext"/>.</param>
+            <returns>An instance of the service.</returns>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.ActivatingActions">
+            <summary>
+            Gets the actions that should be called before instances are activated via the binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.ActivatedActions">
+            <summary>
+            Gets the actions that should be called after instances are activated via the binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.DeactivatedActions">
+            <summary>
+            Gets the actions that should be called before instances are deactivated via the binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.ScopeLifecycle">
+            <summary>
+            Gets the lifecycle scope for binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.Priority">
+            <summary>
+            Gets the priority for binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.Settings">
+            <summary>
+            Gets the settings for the binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.Parameters">
+            <summary>
+            Gets the parameters for binding.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Bindings.InterceptorBinding.Services">
+            <summary>
+            Gets the service types.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Components.InterceptionManagerComponent">
+            <summary>
+            Represents the component that manages IInterceptors.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent">
+            <summary>
+            Represents the component that manages IInterceptors.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.GetInterceptorProcesses(MugenInjection.Interface.IBinding)">
+            <summary>
+            Gets all <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <returns>Found <see cref="T:System.Collections.Generic.IList`1"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.AddInterceptorProcess(MugenInjection.Interface.IBinding,MugenInjection.Interception.Interface.IInterceptorProcess)">
+            <summary>
+            Adds the specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <param name="interceptorProcess">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.AddInterceptorProcess(MugenInjection.Interface.IBinding,MugenInjection.Interception.Interface.ISimpleInterceptorProcess)">
+            <summary>
+            Adds the specified <see cref="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <param name="simpleInterceptorProcess">The specified <see cref="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="genericBindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.InterceptAsTarget``1(MugenInjection.Interface.IBindingBuilder,System.Type[],System.Boolean,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="bindingBuilder">The binding builder for target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="alwaysNewProxy">Always create a new proxy object, regardless of the target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.InterceptAsTarget``2(MugenInjection.Interface.IBindingBuilder,System.Type[],System.Boolean,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="bindingBuilder">The binding builder for target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="alwaysNewProxy">Always create a new proxy object, regardless of the target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.CreateInterceptor(MugenInjection.Interception.Interface.IProxy,System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Creates an <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/> for intercept all processes.
+            </summary>
+            <param name="proxy">The specified <see cref="T:MugenInjection.Interception.Interface.IProxy"/>. </param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept proxy.</param>
+            <returns>An instance of the <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.Components.IInterceptionManagerComponent.ProxyFactory">
+            <summary>
+            Gets the <see cref="T:MugenInjection.Interception.Interface.IProxyFactory"/>.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.GetInterceptorProcesses(MugenInjection.Interface.IBinding)">
+            <summary>
+            Gets all <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <returns>Found <see cref="T:System.Collections.Generic.IList`1"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.AddInterceptorProcess(MugenInjection.Interface.IBinding,MugenInjection.Interception.Interface.IInterceptorProcess)">
+            <summary>
+            Adds the specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <param name="interceptorProcess">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.AddInterceptorProcess(MugenInjection.Interface.IBinding,MugenInjection.Interception.Interface.ISimpleInterceptorProcess)">
+            <summary>
+            Adds the specified <see cref="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess"/> for specified <see cref="T:MugenInjection.Interface.IBinding"/>.
+            </summary>
+            <param name="binding">The specified <see cref="T:MugenInjection.Interface.IBinding"/>.</param>
+            <param name="simpleInterceptorProcess">The specified <see cref="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="genericBindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.InterceptAsTarget``1(MugenInjection.Interface.IBindingBuilder,System.Type[],System.Boolean,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="bindingBuilder">The binding builder for target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="alwaysNewProxy">Always create a new proxy object, regardless of the target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.InterceptAsTarget``2(MugenInjection.Interface.IBindingBuilder,System.Type[],System.Boolean,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="bindingBuilder">The binding builder for target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="alwaysNewProxy">Always create a new proxy object, regardless of the target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.CreateInterceptor(MugenInjection.Interception.Interface.IProxy,System.Collections.Generic.IList{MugenInjection.Interception.Interface.IInterceptorProcess})">
+            <summary>
+            Creates an <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/> for intercept all processes.
+            </summary>
+            <param name="proxy">The specified <see cref="T:MugenInjection.Interception.Interface.IProxy"/>. </param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept proxy.</param>
+            <returns>An instance of the <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:MugenInjection.Interception.Components.InterceptionManagerComponent.ProxyFactory">
+            <summary>
+            Gets the <see cref="T:MugenInjection.Interception.Interface.IProxyFactory"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Components.InterceptionManagerComponent.IsSingle">
+            <summary>
+            Indicates whether the component is unique.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Components.InterceptionManagerComponent.ComponentType">
+            <summary>
+            Gets the component type. Need to find a component in the container.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Components.InterceptionManagerComponent.InterceptorComparer.Compare(MugenInjection.Interception.Interface.IInterceptorProcess,MugenInjection.Interception.Interface.IInterceptorProcess)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <returns>
+            Value Condition Less than zero<paramref name="x"/> is less than <paramref name="y"/>.Zero<paramref name="x"/> equals <paramref name="y"/>.Greater than zero<paramref name="x"/> is greater than <paramref name="y"/>.
+            </returns>
+            <param name="x">The first object to compare.</param><param name="y">The second object to compare.</param>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IProxyCollection">
+            <summary>
+            Represents the specific collection for <see cref="T:MugenInjection.Interception.Interface.IProxy"/>s.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyCollection.Find(System.Int32)">
+            <summary>
+            Searches for an <see cref="T:MugenInjection.Interception.Interface.IProxy"/> with the specified token.
+            </summary>
+            <param name="token">The specified token for search.</param>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Interface.IProxy"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyCollection.Find(System.Reflection.MemberInfo)">
+            <summary>
+            Searches for an <see cref="T:MugenInjection.Interception.Interface.IProxy"/> with the specified <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+            <param name="memberInfo">The specified <see cref="T:System.Reflection.MemberInfo"/> for search.</param>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Interface.IProxy"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyCollection.Clone">
+            <summary>
+            Creates a new object that is a copy of the current <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/>.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Add(MugenInjection.Interception.Interface.IProxy)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only. </exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Contains(MugenInjection.Interception.Interface.IProxy)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.CopyTo(MugenInjection.Interception.Interface.IProxy[],System.Int32)">
+            <summary>
+            Copies the elements of the <see cref="T:System.Collections.Generic.ICollection`1"/> to an <see cref="T:System.Array"/>, starting at a particular <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the elements copied from <see cref="T:System.Collections.Generic.ICollection`1"/>. The <see cref="T:System.Array"/> must have zero-based indexing.</param><param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param><exception cref="T:System.ArgumentNullException"><paramref name="array"/> is null.</exception><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="arrayIndex"/> is less than 0.</exception><exception cref="T:System.ArgumentException">The number of elements in the source <see cref="T:System.Collections.Generic.ICollection`1"/> is greater than the available space from <paramref name="arrayIndex"/> to the end of the destination <paramref name="array"/>.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Remove(MugenInjection.Interception.Interface.IProxy)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.IndexOf(MugenInjection.Interception.Interface.IProxy)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Insert(System.Int32,MugenInjection.Interception.Interface.IProxy)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param><param name="item">The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Find(System.Int32)">
+            <summary>
+            Searches for an <see cref="T:MugenInjection.Interception.Interface.IProxy"/> with the specified token.
+            </summary>
+            <param name="token">The specified token for search.</param>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Interface.IProxy"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Find(System.Reflection.MemberInfo)">
+            <summary>
+            Searches for an <see cref="T:MugenInjection.Interception.Interface.IProxy"/> with the specified <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+            <param name="memberInfo">The specified <see cref="T:System.Reflection.MemberInfo"/> for search.</param>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Interface.IProxy"/>.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyCollection.Clone">
+            <summary>
+            Creates a new object that is a copy of the current <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/>.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Infrastructure.ProxyCollection.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Infrastructure.ProxyCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>
+            true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Infrastructure.ProxyCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <returns>
+            The element at the specified index.
+            </returns>
+            <param name="index">The zero-based index of the element to get or set.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The property is set and the <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.ProxyUtils.IsInternalToProxy(System.Reflection.Assembly)">
+            <summary>
+            Determines whether this assembly has internals visible to proxy.
+            </summary>
+            <param name="asm">The assembly to inspect.</param>
+        </member>
+        <member name="T:MugenInjection.Interception.InterceptionExtensionUtils">
+            <summary>
+            Represents the extensions for <see cref="T:MugenInjection.Interface.IInjector"/> to add interceptor support.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.InterceptionExtensionUtils.ProxyAssemblyName">
+            <summary>
+            Contain Proxy assembly name with public key.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Constant.IConstantObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Constant.IConstantObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Method.IMethodObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Method.IMethodObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Type.ITypeObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget(MugenInjection.Syntax.Type.ITypeObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Constant.IConstantObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Constant.IConstantObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Method.IMethodObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Method.IMethodObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Type.ITypeObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAsTarget``1(MugenInjection.Syntax.Type.ITypeObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptGetProperty``1(``0,System.Reflection.PropertyInfo,System.Func{MugenInjection.Interception.Interface.IPropertyGetInterceptor,System.Object})">
+            <summary>
+            Intercepts a get property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="propertyInfo">The specified <see cref="T:System.Reflection.PropertyInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptSetProperty``1(``0,System.Reflection.PropertyInfo,System.Func{MugenInjection.Interception.Interface.IPropertySetInterceptor,System.Object})">
+            <summary>
+            Intercepts a set property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="propertyInfo">The specified <see cref="T:System.Reflection.PropertyInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptAddEvent``1(``0,System.Reflection.EventInfo,System.Func{MugenInjection.Interception.Interface.IEventAddInterceptor,System.Delegate})">
+            <summary>
+            Intercepts adding an event.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="eventInfo">The specified <see cref="T:System.Reflection.EventInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptRemoveEvent``1(``0,System.Reflection.EventInfo,System.Func{MugenInjection.Interception.Interface.IEventRemoveInterceptor,System.Delegate})">
+            <summary>
+            Intercepts removing an event.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="eventInfo">The specified <see cref="T:System.Reflection.EventInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.InterceptionExtensionUtils.InterceptInvokeMethod``1(``0,System.Reflection.MethodInfo,System.Func{MugenInjection.Interception.Interface.IMethodInterceptor,System.Object})">
+            <summary>
+            Intercept a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="method">The specified <see cref="T:System.Reflection.MethodInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="T:MugenInjection.Interception.ActionInterceptorProcess">
+            <summary>
+            Represents the interceptor that map interceptors to actions.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess">
+            <summary>
+            Intercepts the call to action related to methods, properties, and events.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.ISimpleInterceptorProcess.Intercept(MugenInjection.Interception.Interface.IInterceptor)">
+            <summary>
+            Intercepts all actions.
+            </summary>
+            <param name="interceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.</param>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.ISimpleInterceptorProcess.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.ActionInterceptorProcess"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.Intercept(MugenInjection.Interception.Interface.IInterceptor)">
+            <summary>
+            Intercepts all actions.
+            </summary>
+            <param name="interceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.</param>
+        </member>
+        <member name="P:MugenInjection.Interception.ActionInterceptorProcess.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember.Equals(MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+            </returns>
+            <param name="obj">Another object to compare to. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer that is the hash code for this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember.#ctor(MugenInjection.Interception.Interface.InterceptorType,System.Reflection.MemberInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.ActionInterceptorProcess.InterceptionMember"/> class.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.DefaultInterceptor">
+            <summary>
+            Represents the default interceptor.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IEventAddInterceptor">
+            <summary>
+            Represent an interface to intercept add an event.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IInterceptor">
+            <summary>
+            Represent an base interface for all interceptors.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptor.ProcessOriginal">
+            <summary>
+            Invokes the original method of the member.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptor.ProcessInTarget">
+            <summary>
+            Invokes the method in a target.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.Proxy">
+            <summary>
+            Gets a proxy object for the <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.Target">
+            <summary>
+            Gets or sets the target of the interception.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.InterceptorType">
+            <summary>
+            Gets the type of current <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.Member">
+            <summary>
+            Gets the <see cref="T:System.Reflection.MemberInfo"/>. 
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.Interceptors">
+            <summary>
+            Gets the chain of interceptors that will be executed before the target method is called.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptor.IsAbstract">
+            <summary>
+            Indicates that no member of the base implementation.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IEventAddInterceptor.AddMethod">
+            <summary>
+            Gets the original method of add events.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IEventAddInterceptor.AddValue">
+            <summary>
+            Gets or sets the event to be added.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IEventRemoveInterceptor">
+            <summary>
+            Represent an interface to intercept removing an event.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IEventRemoveInterceptor.RemoveMethod">
+            <summary>
+            Gets the original method of remove event.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IEventRemoveInterceptor.RemoveValue">
+            <summary>
+            Gets or sets the event to be removed.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IMethodInterceptor">
+            <summary>
+            Represent an interface to intercept a method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IMethodInterceptor.InputParameters">
+            <summary>
+            Gets the input parameters of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IMethodInterceptor.ReturnValue">
+            <summary>
+            Gets or sets the output parameter of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IMethodInterceptor.Method">
+            <summary>
+            Gets the original method.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IPropertyGetInterceptor">
+            <summary>
+            Represent an interface to intercept a get property method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IPropertyGetInterceptor.GetMethod">
+            <summary>
+            Gets the original method of the get property.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IPropertyGetInterceptor.GetValue">
+            <summary>
+            Gets or sets the property value.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IPropertySetInterceptor">
+            <summary>
+            Represent an interface to intercept a set property method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IPropertySetInterceptor.SetMethod">
+            <summary>
+            Gets the original method of the set property.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IPropertySetInterceptor.SetValue">
+            <summary>
+            Gets or sets the property value.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.DefaultInterceptor.SearchFlag">
+            <summary>
+            Default search flags.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.DefaultInterceptor.#ctor(MugenInjection.Interception.Proxy.MethodProxy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.DefaultInterceptor"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.DefaultInterceptor.ProcessOriginal">
+            <summary>
+            Invokes the original method of the member.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.DefaultInterceptor.ProcessInTarget">
+            <summary>
+            Invokes the method in a target.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.Proxy">
+            <summary>
+            Gets a proxy object for the <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.Target">
+            <summary>
+            The target of the interception.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.InterceptorType">
+            <summary>
+            Gest the type of current <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.Member">
+            <summary>
+            Gets the <see cref="T:System.Reflection.MemberInfo"/> for the intercept. 
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.Interceptors">
+            <summary>
+            Gets the chain of interceptors that will be executed before the target method is called.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.IsAbstract">
+            <summary>
+            Indicates that no member of the base implementation.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.AddMethod">
+            <summary>
+            Gets the original method of adding events.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.AddValue">
+            <summary>
+            Gets or sets the event to be added.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.RemoveMethod">
+            <summary>
+            Gets the original method of removing events.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.RemoveValue">
+            <summary>
+            Gets or sets the event to be removed.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.InputParameters">
+            <summary>
+            Gets the input parameters of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.ReturnValue">
+            <summary>
+            Gets or sets the output parameter of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.Method">
+            <summary>
+            Gets the original method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.GetMethod">
+            <summary>
+            Gets the original method of the get property.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.GetValue">
+            <summary>
+            Gets or sets the property value.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.SetMethod">
+            <summary>
+            Gets the original method of the set property.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.DefaultInterceptor.SetValue">
+            <summary>
+            Gets or sets the property value.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.DefaultInterceptor.InterceptorTypeCache.#ctor(System.Reflection.MemberInfo,MugenInjection.Interception.Interface.InterceptorType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.SimpleInterceptorProcessAdapter">
+            <summary>
+            Adapter for convert <see cref="T:MugenInjection.Interception.Interface.ISimpleInterceptorProcess"/> to <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/>.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IInterceptorProcess">
+            <summary>
+            Intercepts the call to action related to methods, properties, and events.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptorProcess.InterceptMethod(MugenInjection.Interception.Interface.IMethodInterceptor)">
+            <summary>
+            Intercepts the method using the specified <see cref="T:MugenInjection.Interception.Interface.IMethodInterceptor"/>.
+            </summary>
+            <param name="methodInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IMethodInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptorProcess.InterceptGetProperty(MugenInjection.Interception.Interface.IPropertyGetInterceptor)">
+            <summary>
+            Intercepts the get property method using the specified <see cref="T:MugenInjection.Interception.Interface.IPropertyGetInterceptor"/>.
+            </summary>
+            <param name="propertyGetInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IPropertyGetInterceptor"/></param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptorProcess.InterceptSetProperty(MugenInjection.Interception.Interface.IPropertySetInterceptor)">
+            <summary>
+            Intercepts the set property method using the specified <see cref="T:MugenInjection.Interception.Interface.IPropertySetInterceptor"/>.
+            </summary>
+            <param name="propertySetInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IPropertySetInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptorProcess.InterceptAddEvent(MugenInjection.Interception.Interface.IEventAddInterceptor)">
+            <summary>
+            Intercepts the add event method using the specified <see cref="T:MugenInjection.Interception.Interface.IEventAddInterceptor"/>.
+            </summary>
+            <param name="eventAddInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IEventAddInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IInterceptorProcess.InterceptRemoveEvent(MugenInjection.Interception.Interface.IEventRemoveInterceptor)">
+            <summary>
+            Intercepts the remove event method using the specified <see cref="T:MugenInjection.Interception.Interface.IEventRemoveInterceptor"/>.
+            </summary>
+            <param name="eventRemoveInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IEventRemoveInterceptor"/>.</param>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IInterceptorProcess.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.#ctor(MugenInjection.Interception.Interface.ISimpleInterceptorProcess)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.SimpleInterceptorProcessAdapter"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.InterceptMethod(MugenInjection.Interception.Interface.IMethodInterceptor)">
+            <summary>
+            Intercept the method using the specified <see cref="T:MugenInjection.Interception.Interface.IMethodInterceptor"/>.
+            </summary>
+            <param name="methodInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IMethodInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.InterceptGetProperty(MugenInjection.Interception.Interface.IPropertyGetInterceptor)">
+            <summary>
+            Intercept the get property method using the specified <see cref="T:MugenInjection.Interception.Interface.IPropertyGetInterceptor"/>.
+            </summary>
+            <param name="propertyGetInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IPropertyGetInterceptor"/></param>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.InterceptSetProperty(MugenInjection.Interception.Interface.IPropertySetInterceptor)">
+            <summary>
+            Intercept the set property method using the specified <see cref="T:MugenInjection.Interception.Interface.IPropertySetInterceptor"/>.
+            </summary>
+            <param name="propertySetInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IPropertySetInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.InterceptAddEvent(MugenInjection.Interception.Interface.IEventAddInterceptor)">
+            <summary>
+            Intercept the add event method using the specified <see cref="T:MugenInjection.Interception.Interface.IEventAddInterceptor"/>.
+            </summary>
+            <param name="eventAddInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IEventAddInterceptor"/>.</param>
+        </member>
+        <member name="M:MugenInjection.Interception.SimpleInterceptorProcessAdapter.InterceptRemoveEvent(MugenInjection.Interception.Interface.IEventRemoveInterceptor)">
+            <summary>
+            Intercept the remove event method using the specified <see cref="T:MugenInjection.Interception.Interface.IEventRemoveInterceptor"/>.
+            </summary>
+            <param name="eventRemoveInterceptor">The specified <see cref="T:MugenInjection.Interception.Interface.IEventRemoveInterceptor"/>.</param>
+        </member>
+        <member name="P:MugenInjection.Interception.SimpleInterceptorProcessAdapter.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.InterceptorType">
+            <summary>
+            The type of <see cref="T:MugenInjection.Interception.Interface.IInterceptor"/>.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.Method">
+            <summary>
+            The method type.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.PropertyGet">
+            <summary>
+            The property get type.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.PropertySet">
+            <summary>
+            The property set type.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.EventAdd">
+            <summary>
+            The event add type.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.EventRemove">
+            <summary>
+            The event remove type.
+            </summary>
+        </member>
+        <member name="F:MugenInjection.Interception.Interface.InterceptorType.Unknown">
+            <summary>
+            The unknown type.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IProxy">
+            <summary>
+            Represent a proxy metadata.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxy.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxy.MetadataToken">
+            <summary>
+            Gets the metadataToken of the proxy method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxy.Member">
+            <summary>
+            Gets the member of the proxy. 
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxy.Instance">
+            <summary>
+            Gets the proxy instance.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxy.OriginalAction">
+            <summary>
+            Gest the original action, if any.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxy.OnInvoke">
+            <summary>
+            Gets or sets a method for the interception.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IProxyBuilder">
+            <summary>
+            Represents the interface for creating a proxy.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyBuilder.CreateProxy(System.Type,System.Type[],MugenInjection.Interception.Interface.IProxyCollection@)">
+            <summary>
+            Creates a proxy type.
+            </summary>
+            <param name="baseType">The specified base type for proxy.</param>
+            <param name="interfaces">Ths specified interfaces for include to proxy.</param>
+            <param name="proxyCollection">The result <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/>.</param>
+            <returns>A proxy type.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyBuilder.GetProxyConstructorTypes(System.Type[])">
+            <summary>
+            Gets the proxy constructor types match the original types.
+            </summary>
+            <param name="originalTypes">The specified original types.</param>
+            <returns>The proxy types.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxyBuilder.ConstructorParameterName">
+            <summary>
+            Gets the name of the parameter for the <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> used in a constructor.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxyBuilder.DynamicModule">
+            <summary>
+            Gets or sets a module that uses a proxy.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Interface.IProxyFactory">
+            <summary>
+            Represents the factory for creating a proxy types.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyFactory.CreateProxy(System.Type,System.Type@)">
+            <summary>
+            Creates a proxy based on the underlying type.
+            </summary>
+            <param name="baseType">The specified base type for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns>The specified <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyFactory.CreateProxy(System.Type,System.Type[],System.Type@)">
+            <summary>
+            Creates a proxy based on the underlying type and interfaces.
+            </summary>
+            <param name="baseType">The base type for proxy.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns>The <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Interface.IProxyFactory.CreateProxy(System.Type[],System.Type@)">
+            <summary>
+            Creates a proxy based on interfaces.
+            </summary>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns><see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Interface.IProxyFactory.ProxyBuilder">
+            <summary>
+            Gets the <see cref="T:MugenInjection.Interception.Interface.IProxyBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Parameters.ProxyCollectionParameter.#ctor(System.String,MugenInjection.Interception.Interface.IProxyCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Parameters.ProxyCollectionParameter"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Parameters.ProxyCollectionParameter.CanResolve(System.Reflection.MemberInfo,System.Reflection.ParameterInfo)">
+            <summary>
+            Determines whether the specified request can be resolved.
+            </summary>
+            <param name="memberInfo">The specified <see cref="T:System.Reflection.MemberInfo"/></param>
+            <param name="parameter">The specified <see cref="T:System.Reflection.ParameterInfo"/> </param>
+            <returns><c>True</c> if the specified request has been resolved; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:MugenInjection.Parameters.ProxyCollectionParameter.GetValue(MugenInjection.Interface.IParameterContext)">
+            <summary>
+            Gets parameter value for specified <see cref="T:MugenInjection.Interface.IParameterContext"/>.
+            </summary>
+            <param name="parameterContext">The specified <see cref="T:MugenInjection.Interface.IParameterContext"/>.</param>
+            <returns>An instance of the parameter value.</returns>
+        </member>
+        <member name="M:MugenInjection.Parameters.ProxyCollectionParameter.Equals(MugenInjection.Interface.IInjectionParameter)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="P:MugenInjection.Parameters.ProxyCollectionParameter.Name">
+            <summary>
+            Gets the specified parameter name.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Parameters.ProxyCollectionParameter.ParameterType">
+            <summary>
+            Gets the specified parameter <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Parameters.ProxyCollectionParameter.MemberType">
+            <summary>
+            Gets the specified parameter <see cref="T:System.Reflection.MemberTypes"/>.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.CreateProxy(System.Type,System.Type[],MugenInjection.Interception.Interface.IProxyCollection@)">
+            <summary>
+            Creates a proxy type.
+            </summary>
+            <param name="baseType">The specified base type for proxy.</param>
+            <param name="interfaces">Ths specified interfaces for include to proxy.</param>
+            <param name="proxyCollection">The result <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/>.</param>
+            <returns>A proxy type.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.GetProxyConstructorTypes(System.Type[])">
+            <summary>
+            Gets the proxy constructor types match the original types.
+            </summary>
+            <param name="originalTypes">The specified original types.</param>
+            <returns>The proxy types.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.ImplementMethods(System.Reflection.Emit.TypeBuilder,System.Type,MugenInjection.Interception.Proxy.DefaultProxyBuilder.ProxyFields,MugenInjection.Interception.Interface.IProxyCollection)">
+            <summary>
+            Implement all virtual or abstract method in specified <see cref="!:service"/>.
+            </summary>
+            <param name="typeBuilder"></param>
+            <param name="service"></param>
+            <param name="proxyFields"></param>
+            <param name="proxies"></param>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.FindProxy(System.Reflection.Emit.ILGenerator,System.Reflection.FieldInfo,System.Type,System.Int32)">
+            <summary>
+            Find <see cref="T:MugenInjection.Interception.Proxy.ProxyBase"/> from collection, and cast it to specified <see cref="!:castType"/>.
+            </summary>
+            <param name="ilGenerator"></param>
+            <param name="proxyField"></param>
+            <param name="castType"></param>
+            <param name="token"> </param>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.DefaultProxyBuilder.ConstructorParameterName">
+            <summary>
+            Gets the name of the parameter for the <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> used in a constructor.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.DefaultProxyBuilder.DynamicModule">
+            <summary>
+            Gets or sets a module that uses a proxy.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.CachedTypes.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Proxy.DefaultProxyBuilder.CachedTypes"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.CachedTypes.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+            </returns>
+            <param name="obj">Another object to compare to. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.DefaultProxyBuilder.CachedTypes.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer that is the hash code for this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:MugenInjection.Interception.Proxy.MethodProxy">
+            <summary>
+            Represents the base class for represent a method proxy metadata.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Proxy.ProxyBase">
+            <summary>
+            Base class for represent a proxy metadata.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.ProxyBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.ProxyBase.Create">
+            <summary>
+            Creates a new instance of <see cref="T:MugenInjection.Interception.Proxy.ProxyBase"/>.
+            </summary>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Proxy.ProxyBase"/>.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.ProxyBase.MetadataToken">
+            <summary>
+            Gets the metadataToken of the proxy method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.ProxyBase.Member">
+            <summary>
+            Gets the member of the proxy. 
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.ProxyBase.Instance">
+            <summary>
+            Gets the proxy instance.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.ProxyBase.OriginalAction">
+            <summary>
+            Gest the original action, if any.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.ProxyBase.OnInvoke">
+            <summary>
+            Gets or sets a method for the interception.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MethodProxy.Create">
+            <summary>
+            Creates a new instance of <see cref="T:MugenInjection.Interception.Proxy.ProxyBase"/>.
+            </summary>
+            <returns>An instance of <see cref="T:MugenInjection.Interception.Proxy.ProxyBase"/>.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MethodProxy.OriginalAction">
+            <summary>
+            Gest the original action, if any.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MethodProxy.OnInvoke">
+            <summary>
+            Gets or sets a method for the interception.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MethodProxy.InputParameters">
+            <summary>
+            Gets the input parameters of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MethodProxy.ReturnValue">
+            <summary>
+            Gets the output parameter of the method.
+            </summary>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MethodProxy.Method">
+            <summary>
+            Gets the original method.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory">
+            <summary>
+            A base implementation of the <see cref="T:MugenInjection.Interception.Interface.IProxyFactory"/>.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.#ctor(MugenInjection.Interception.Interface.IProxyBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.CreateProxy(System.Type,System.Type@)">
+            <summary>
+            Creates a proxy based on the underlying type.
+            </summary>
+            <param name="baseType">The specified base type for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns>The specified <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.CreateProxy(System.Type,System.Type[],System.Type@)">
+            <summary>
+            Creates a proxy based on the underlying type and interfaces.
+            </summary>
+            <param name="baseType">The base type for proxy.</param>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns>The <see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="M:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.CreateProxy(System.Type[],System.Type@)">
+            <summary>
+            Creates a proxy based on interfaces.
+            </summary>
+            <param name="interfaces">The specified interfaces for proxy.</param>
+            <param name="proxyType">The result proxy <see cref="T:System.Type"/>.</param>
+            <returns><see cref="T:MugenInjection.Interception.Interface.IProxyCollection"/> for intercept.</returns>
+        </member>
+        <member name="P:MugenInjection.Interception.Proxy.MugenInjectionProxyFactory.ProxyBuilder">
+            <summary>
+            Gets the <see cref="T:MugenInjection.Interception.Interface.IProxyBuilder"/>.
+            </summary>
+        </member>
+        <member name="T:MugenInjection.Interception.Infrastructure.AnyResolveContext">
+            <summary>
+            Represents a context for resolve service.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.AnyResolveContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MugenInjection.Interception.Infrastructure.AnyResolveContext"/> class.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.Interception.Infrastructure.AnyResolveContext.Any``1">
+            <summary>
+            Resolve current service <see cref="!:T"/>.
+            </summary>
+            <typeparam name="T">The specified service <see cref="!:T"/></typeparam>
+            <returns>An instance of service.</returns>
+        </member>
+        <member name="T:MugenInjection.InterceptionExtension">
+            <summary>
+            Represents the extensions for <see cref="T:MugenInjection.Interface.IInjector"/> to add interceptor support.
+            </summary>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.Intercept(MugenInjection.Syntax.ICommonBindingSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.Intercept``1(MugenInjection.Syntax.IGenericBindingSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied.
+            </summary>
+            <param name="bindingSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Constant.IConstantObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Constant.IConstantObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Method.IMethodObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Method.IMethodObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Type.ITypeObjectSyntax,System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget(MugenInjection.Syntax.Type.ITypeObjectSyntax,MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Constant.IConstantObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Constant.IConstantObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="constantObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Method.IMethodObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Method.IMethodObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="methodObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Type.ITypeObjectSyntax{``0},System.Type[],MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interfaces">Interfaces for proxy.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAsTarget``1(MugenInjection.Syntax.Type.ITypeObjectSyntax{``0},MugenInjection.Interception.Interface.IInterceptorProcess[])">
+            <summary>
+            Indicates that instances associated with this binding will be proxied and the target will be to the original binding.
+            </summary>
+            <param name="typeObjectSyntax">The binding syntax target.</param>
+            <param name="interceptorProcesses">The specified <see cref="T:MugenInjection.Interception.Interface.IInterceptorProcess"/> for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptGetProperty``1(``0,System.Reflection.PropertyInfo,System.Func{MugenInjection.Interception.Interface.IPropertyGetInterceptor,System.Object})">
+            <summary>
+            Intercepts a get property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="propertyInfo">The specified <see cref="T:System.Reflection.PropertyInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptSetProperty``1(``0,System.Reflection.PropertyInfo,System.Func{MugenInjection.Interception.Interface.IPropertySetInterceptor,System.Object})">
+            <summary>
+            Intercepts a set property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="propertyInfo">The specified <see cref="T:System.Reflection.PropertyInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptAddEvent``1(``0,System.Reflection.EventInfo,System.Func{MugenInjection.Interception.Interface.IEventAddInterceptor,System.Delegate})">
+            <summary>
+            Intercepts adding an event.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="eventInfo">The specified <see cref="T:System.Reflection.EventInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptRemoveEvent``1(``0,System.Reflection.EventInfo,System.Func{MugenInjection.Interception.Interface.IEventRemoveInterceptor,System.Delegate})">
+            <summary>
+            Intercepts removing an event.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="eventInfo">The specified <see cref="T:System.Reflection.EventInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``1(``0,System.Reflection.MethodInfo,System.Func{MugenInjection.Interception.Interface.IMethodInterceptor,System.Object})">
+            <summary>
+            Intercept a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="methodInfo">The specified <see cref="T:System.Reflection.MethodInfo"/> for intercept.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptGetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetConstantSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.GetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a get property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptGetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetMethodSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.GetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a get property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptGetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetTypeSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.GetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a get property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptSetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetConstantSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.SetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a set property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptSetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetMethodSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.SetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a set property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptSetProperty``2(MugenInjection.Interception.Syntax.IInterceptAsTargetTypeSyntax{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},MugenInjection.Interception.Delegates.SetPropertyDelegate{``1,``0})">
+            <summary>
+            Intercepts a set property method.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="property">The property accesss expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``1(MugenInjection.Interception.Syntax.IInterceptAsTargetConstantSyntax{``0},System.Linq.Expressions.Expression{System.Action{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0}},MugenInjection.Interception.Delegates.InvokeVoidMethodDelegate{``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="voidMethodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``1(MugenInjection.Interception.Syntax.IInterceptAsTargetMethodSyntax{``0},System.Linq.Expressions.Expression{System.Action{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0}},MugenInjection.Interception.Delegates.InvokeVoidMethodDelegate{``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="voidMethodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``1(MugenInjection.Interception.Syntax.IInterceptAsTargetTypeSyntax{``0},System.Linq.Expressions.Expression{System.Action{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0}},MugenInjection.Interception.Delegates.InvokeVoidMethodDelegate{``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="voidMethodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``2(MugenInjection.Interception.Syntax.IInterceptAsTargetConstantSyntax{``0},System.Linq.Expressions.Expression{System.Func{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0,``1}},MugenInjection.Interception.Delegates.InvokeMethodDelegate{``1,``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="methodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``2(MugenInjection.Interception.Syntax.IInterceptAsTargetMethodSyntax{``0},System.Linq.Expressions.Expression{System.Func{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0,``1}},MugenInjection.Interception.Delegates.InvokeMethodDelegate{``1,``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="methodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+        <member name="M:MugenInjection.InterceptionExtension.InterceptInvokeMethod``2(MugenInjection.Interception.Syntax.IInterceptAsTargetTypeSyntax{``0},System.Linq.Expressions.Expression{System.Func{MugenInjection.Interception.Infrastructure.AnyResolveContext,``0,``1}},MugenInjection.Interception.Delegates.InvokeMethodDelegate{``1,``0})">
+            <summary>
+            Intercepts a method invoke.
+            </summary>
+            <param name="interceptSyntax">The binding syntax target.</param>
+            <param name="methodCall">The specified method call expression.</param>
+            <param name="interceptAction">The specified delegate for intercept.</param>
+            <returns>The fluent syntax.</returns>
+        </member>
+    </members>
+</doc>

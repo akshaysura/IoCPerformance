@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Maestro.Interception.DynamicProxy</name>
+    </assembly>
+    <members>
+        <member name="M:Maestro.Configuration.InstanceBuilderExpressionExtensions.Proxy``2(Maestro.Configuration.IInstanceBuilderExpression{``0},System.Func{Maestro.Configuration.Input{``0},``1})">
+            <summary>
+            Adds a pransparent proxy interceptor to the pipeline.
+            </summary>
+            <typeparam name="TIn"></typeparam>
+            <typeparam name="TOut"></typeparam>
+            <param name="builderExpression"></param>
+            <param name="proxyFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.InstanceBuilderExpressionExtensions.Proxy``2(Maestro.Configuration.IInstanceBuilderExpression{``0},System.Func{``0,Castle.DynamicProxy.ProxyGenerator,``1})">
+            <summary>
+            Adds a pransparent proxy interceptor to the pipeline.
+            </summary>
+            <typeparam name="TIn"></typeparam>
+            <typeparam name="TOut"></typeparam>
+            <param name="builderExpression"></param>
+            <param name="proxyFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.Configuration.InstanceBuilderExpressionExtensions.Proxy``2(Maestro.Configuration.IInstanceBuilderExpression{``0},System.Func{``0,Maestro.IContext,Castle.DynamicProxy.ProxyGenerator,``1})">
+            <summary>
+            Adds a pransparent proxy interceptor to the pipeline.
+            </summary>
+            <typeparam name="TIn"></typeparam>
+            <typeparam name="TOut"></typeparam>
+            <param name="builderExpression"></param>
+            <param name="proxyFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Maestro.ProxyGeneratorFactory.GetProxyGenerator">
+            <summary>
+            Returns a static ProxyGenerator instance.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

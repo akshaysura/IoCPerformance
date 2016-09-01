@@ -1,0 +1,3569 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StyleMVVM.Phone</name>
+    </assembly>
+    <members>
+        <member name="T:StyleMVVM.Data.EditableDataWrapper`1">
+            <summary>
+            A utiltity class that wraps a value of type T and records edits for an object
+            </summary>
+            <typeparam name="T">data object type to wrap</typeparam>
+        </member>
+        <member name="T:StyleMVVM.Data.NotifyObject">
+            <summary>
+            A base object that implements INotifyPropertyChanged and offers logging
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.NotifyObject.SetProperty``1(``0@,``0,System.String)">
+            <summary>
+            Sets a value to a particular property while calling PropertyChanged
+            Note: Default implementation from VS temlate
+            </summary>
+            <typeparam name="T">type of property</typeparam>
+            <param name="storage">backing field for the property</param>
+            <param name="value">new value to set</param>
+            <param name="propertyName">property name (usually left blank if calling from property)</param>
+            <returns>true if the value was set (false if its the same value)</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.NotifyObject.OnPropertyChanged(System.String)">
+            <summary>
+            Default implementation of Propertychanged event invoker
+            </summary>
+            <param name="propertyName">property that changed</param>
+        </member>
+        <member name="T:StyleMVVM.Data.IEditableDataWrapper`1">
+            <summary>
+            Interface that wraps a data object and tracks changes
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:StyleMVVM.Data.IEditable">
+            <summary>
+            Interface representing basic Commit/RollBack functionality
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.IEditable.Commit">
+            <summary>
+            Commit the edits to the object
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.IEditable.RollBack">
+            <summary>
+            Rollback the dits to the object
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.IEditable.PendingChanges">
+            <summary>
+            True if the object has any pending changes
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.IEditable.EditingMode">
+            <summary>
+            What editing mode is this object in
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.IEditableDataWrapper`1.Value">
+            <summary>
+            Value to wrap (this object can be changed over the lifetime of the wrapper)
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.IMergable">
+            <summary>
+            This is for future use. 
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportPipelineHandler.FilterStrategiesForPipeline(System.Collections.Generic.IEnumerable{StyleMVVM.DependencyInjection.IExportStrategy})">
+            <summary>
+            Filters the list of export strategies that the pipeline should be applied to
+            </summary>
+            <param name="strategies">all strategies</param>
+            <returns>all exports to apply the pipeline to</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportPipelineHandler.ProcessExport(System.Object,StyleMVVM.DependencyInjection.IExportStrategy)">
+            <summary>
+            Upon creating an export the process export method will be called
+            </summary>
+            <param name="exportedObject"></param>
+            <param name="strategy"></param>
+        </member>
+        <member name="M:StyleMVVM.Data.WeakNotifyObject.SetProperty``1(``0@,``0,System.String)">
+            <summary>
+            Sets a value to a particular property while calling PropertyChanged
+            Note: Default implementation from VS temlate
+            </summary>
+            <typeparam name="T">type of property</typeparam>
+            <param name="storage">backing field for the property</param>
+            <param name="value">new value to set</param>
+            <param name="propertyName">property name (usually left blank if calling from property)</param>
+            <returns>true if the value was set (false if its the same value)</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.WeakNotifyObject.OnPropertyChanged(System.String)">
+            <summary>
+            Default implementation of Propertychanged event invoker
+            </summary>
+            <param name="propertyName">property that changed</param>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ActivationCompleteAttribute">
+            <summary>
+            Attribute that goes onto a method with no parameters in a class that is being exported.
+            The action will be called as the last step of activation.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IActivationCompleteAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.CachedAttribute">
+            <summary>
+            Exported classes that use this attribute will be cached in the DI container and reused till the cache time expires
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.ILifeCycleContainerProviderAttribute">
+            <summary>
+            Attributes that implement this interface can provide custom lifecycle containers during export discovery
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.ILifeCycleContainerProviderAttribute.ProvideContainer">
+            <summary>
+            Provide a new lifecycle container for the export
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.CachedAttribute.ExpirationTime">
+            <summary>
+            Allows you to control the length of time this component will be cached (15 min by default)
+            Note: this string will be passed into a timespan so formats like "00:15:00" are expected
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.CachedAttribute.SlidingExpireWindow">
+            <summary>
+            The cache window will be extended each time you access the object if true (true by default)
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Conditions.ExportWhenClassHasAttribute">
+            <summary>
+            Limits an export to only be used when the class it's being injected into has the specified attribute
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IExportConditionAttribute">
+            <summary>
+            Attributes that implement this interface can provide an IExportCondition for the attributed type
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.IExportConditionAttribute.ProvideCondition(System.Type)">
+            <summary>
+            Provide a condition for the type provided
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Conditions.ExportWhenClassHasAttribute.#ctor(System.Type)">
+            <summary>
+            Default constructor that takes an attribute type to filter on
+            </summary>
+            <param name="attributeType"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Conditions.ExportWhenClassHasAttribute.ProvideCondition(System.Type)">
+            <summary>
+            Provide a condition for the type provided
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.CoreExportAttribute">
+            <summary>
+            Classes attributed with this will be created at startup
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.DesignTimeOnlyAttribute">
+            <summary>
+            This denotes the type should only be load at During design time
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportEnvironmentAttribute">
+            <summary>
+            This attribute allows you to dictate what environment to export the class in.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IEnrichWithAttribute">
+            <summary>
+            Attributes that implement will be called at discovery time to provide a EnrichWithDelegate
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.IEnrichWithAttribute.ProvideDelegate(System.Type,System.Int32@)">
+            <summary>
+            Provides an EnrichWithDelegate for an attributed type
+            </summary>
+            <param name="attributedType"></param>
+            <param name="priority"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.EnrichWithAttribute.#ctor(System.Type)">
+            <summary>
+            default constructor
+            </summary>
+            <param name="enrichmentType">enrichmentType must have a constructor that takes one parameter, the type to be enriched</param>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.EnrichWithAttribute.Priority">
+            <summary>
+            Priority with which to apply to enrich
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportAttribute">
+            <summary>
+            Use this attribute on the top of a class you want to export to the DI container
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IExportAttribute">
+            <summary>
+            Attributes that want to be considered when looking for exports needs to implement this interface
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.Impl.IExportAttribute.ExportTypes">
+            <summary>
+            Exported Types for this type
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.Impl.IExportAttribute.ExportNames">
+            <summary>
+            Exported Name for this type
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.ExportAttribute.#ctor">
+            <summary>
+            Exports as the name of the Class with no namespace
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.ExportAttribute.#ctor(System.Type,System.Type[])">
+            <summary>
+             Exports as the FullName of the Type
+            </summary>
+            <param name="type"></param>
+            <param name="types"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.ExportAttribute.#ctor(System.String,System.String[])">
+            <summary>
+            Exports the type as exportName
+            </summary>
+            <param name="exportName"></param>
+            <param name="names"></param>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ExportAttribute.ExportTypes">
+            <summary>
+            Exported Types for this type
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ExportAttribute.ExportNames">
+            <summary>
+            Exported Name for this type
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportByInterfacesAttribute">
+            <summary>
+            This attribute allows you to tell the DI container that you would like to export this type by all the interfaces it implements
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IExportByInterfacesAttribute">
+            <summary>
+            This attribute interfaces can be used to denoate this type should be exports by it interfaces
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:StyleMVVM.DependencyInjection.ExportByInterfacesAttribute.SkipMicrosoftInterfaces" -->
+        <member name="T:StyleMVVM.DependencyInjection.IExportConfiguration`1">
+            <summary>
+            This interface represents a generic way to configure a Type export
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IBaseExportConfiguration">
+            <summary>
+            This interface is implemented by a class that can create an Export. To be used in the DI contianer
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IBaseExportConfiguration.GetExportStrategy">
+            <summary>
+            Gets the export strategy.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WithPriority(System.Int32)">
+            <summary>
+            Export the type with the specified priority
+            </summary>
+            <param name="priority"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.As``1">
+            <summary>
+            Export as a specific type (usually an interface)
+            </summary>
+            <typeparam name="TExportType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.InEnvironment(StyleMVVM.DependencyInjection.ExportEnvironment)">
+            <summary>
+            Export type in this Environment (ExportEnvironement is a flag so it can be or'd)
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AsName(System.String)">
+            <summary>
+            Export the type under the specified name
+            </summary>
+            <param name="name">name to export under</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndShared">
+            <summary>
+            Share this export between all callers (can be garbage collected)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndSharedPermenantly">
+            <summary>
+            Share this export permanently 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndSingleton">
+            <summary>
+            Marks the export as a singleton for the lifetime of the container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndCachedWithAbsoluteExpiration(System.TimeSpan)">
+            <summary>
+            Allows you to mark this export to be cached using an absolute expire time after creation
+            </summary>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndCachedWithSlidingExpiration(System.TimeSpan)">
+            <summary>
+            Allows you to mark this export to be cached using a sliding expiration time
+            </summary>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.CoreExport(StyleMVVM.DependencyInjection.CoreExportStartOrder)">
+            <summary>
+            Mark this export as a core export (created up container startup)
+            </summary>
+            <param name="startOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ImportConstructor(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This method allows you to specify which constructor to use ( x => new MyTypeName("Specific","Constructor") )
+            </summary>
+            <param name="constructorExpression">constructor expression ( x => new MyTypeName("Specific","Constructor") )</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ImportDefaultConstructor">
+            <summary>
+            Uses the first constructor found for import (this is only recommended when you have one constructor)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.InitializeProperty(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Mark a specific property to be initialized (a new object constructed and set to property)
+            </summary>
+            <param name="property">property expression ( x => x.PropertyName )</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.InitializeProperty``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Mark a specific property to be initialized (a new object constructed and set to property)
+            </summary>
+            <param name="property">property expression ( x => x.PropertyName )</param>
+            <param name="initializeValue">initialize value</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ImportProperty(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Boolean,System.String)">
+            <summary>
+            Mark a property for Import (using dependency injection container)
+            </summary>
+            <param name="property">property expression (x => x.PropertyName) </param>
+            <param name="isRequired">is the import required (object will not construct if true and cannot be found)</param>
+            <param name="exportName">export name to use (when null it will use the property type to locate the export)</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ImportProperty(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},StyleMVVM.DependencyInjection.IExportActivator,System.Boolean)">
+            <summary>
+            Mark a property for Import and provide the export for it
+            </summary>
+            <param name="property"></param>
+            <param name="exportActivator"></param>
+            <param name="isRequired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ImportMethod(System.Linq.Expressions.Expression{System.Action{`0}},System.Boolean,System.String)">
+            <summary>
+            Mark a method to be called upon activation passing in an arguement that has be located using the IoC
+            </summary>
+            <param name="method"></param>
+            <param name="isRequired"></param>
+            <param name="exportName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.ActivationMethod(System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Mark a particular Action() as the activation action
+            </summary>
+            <param name="activationMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.LifeCycleContainer(StyleMVVM.DependencyInjection.ILifeCycleContainer)">
+            <summary>
+            Specify a custom life cycle container for the export
+            </summary>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.When(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.Unless(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AndCondition(StyleMVVM.DependencyInjection.IExportCondition)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WhenInjectedInto``1">
+            <summary>
+            Applies a new WhenInjectedInto condition on the export, using the export only when injecting into the specified class
+            </summary>
+            <typeparam name="TInjected"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WhenClassHas``1">
+            <summary>
+            Applies a WhenClassHas condition, using the export only if injecting into a class that is attributed with TAttr
+            </summary>
+            <typeparam name="TAttr"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WhenMemberHas``1">
+            <summary>
+            Applies a WhenMemberHas condition, using the export only if the Property or method or constructor is attribute with TAttr
+            </summary>
+            <typeparam name="TAttr"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WhenTargetHas``1">
+            <summary>
+            Applies a WhenTargetHas condition, using the export only if the Property or Parameter is attributed with TAttr
+            </summary>
+            <typeparam name="TAttr"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.AutoWireProperties(System.Boolean)">
+            <summary>
+            Sets up all public writable properties on the type to be injected
+            </summary>
+            <param name="required">are the properties required</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.WithMetadata(System.String,System.Object)">
+            <summary>
+            Adds metadata to an export
+            </summary>
+            <param name="metadataName"></param>
+            <param name="metadataValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.DisposalCleanupDelegate(StyleMVVM.DependencyInjection.BeforeDisposalCleanupDelegate)">
+            <summary>
+            You can provide a cleanup method to be called 
+            </summary>
+            <param name="disposalCleanupDelegate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration`1.EnrichWith(StyleMVVM.DependencyInjection.EnrichWithDelegate,System.Int32)">
+            <summary>
+            Allows you to add custom activation logic to process before the object is returned.
+            </summary>
+            <param name="enrichWithDelegate"></param>
+            <param name="priority">order in which to apply enrichments</param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportPriorityAttribute">
+            <summary>
+            This attribute allows you to specify what priority to export this attribute at. 
+            Note: Environment is used before priority when it comes time to sort exports.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ExportPriorityAttribute.Priority">
+            <summary>
+            The Export Priority
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension">
+            <summary>
+            C# extensions for IDependencyInjectionContainer
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.RemoveXAMLExports(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Removes all the extra exports that are releated to XAML based development
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.Locate``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,System.Object[])">
+            <summary>
+            Locate an export based upon type
+            </summary>
+            <typeparam name="T">type to locate</typeparam>
+            <param name="container">container to locate from</param>
+            <param name="parameters">parameters to pass upon construction</param>
+            <returns>located type</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.LocateWithContext``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,StyleMVVM.DependencyInjection.IInjectionContext,System.Object[])">
+            <summary>
+            Locate a particular export while specifying the injection context
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.LocateAll``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Locate all exports of a particular type
+            </summary>
+            <typeparam name="T">type to locate</typeparam>
+            <param name="container">container to locate from</param>
+            <returns>located types</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.Register``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Registers a type for export
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.RegisterExportFunction``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,System.Func{StyleMVVM.DependencyInjection.IDependencyInjectionContainer,StyleMVVM.DependencyInjection.IInjectionContext,System.Object[],``0})">
+            <summary>
+            Register a new Function for export in the DI container. Where T is 
+            </summary>
+            <typeparam name="T">type the function returns</typeparam>
+            <param name="container">container</param>
+            <param name="exportFunction">export function</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainerExtension.RegisterFuncForExport``1(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,System.Func{``0})">
+            <summary>
+            Registers an actual Func(T) for export (i.e. you import a Func(T) delegate not T)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="container"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfigurationExtensions.ExportInterface``1(StyleMVVM.DependencyInjection.IExportAssemblyConfiguration)">
+            <summary>
+            This extension allows you export all classes implementing a specific interface in an aseembly
+            </summary>
+            <typeparam name="T">Interface to export</typeparam>
+            <param name="exportAssemblyConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfigurationExtensions.Excluding``1(StyleMVVM.DependencyInjection.IExportAssemblyConfiguration)">
+            <summary>
+            This extension allows you to exclude a particular type from export
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="exportAssemblyConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ImportAttribute">
+            <summary>
+            This attribute is meant to go on public properties and denotes that 
+            as part of activation process this property should be populated from the container
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.IImportAttribute.ProvideImportInfo(System.Object)">
+            <summary>
+            Called to get import information out of the attribute
+            </summary>
+            <param name="memberInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.ImportAttribute.ProvideImportInfo(System.Object)">
+            <summary>
+            Returns information about how to import the property. Must not return null
+            </summary>
+            <param name="memberInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ImportAttribute.ImportName">
+            <summary>
+            This is the name to use when resolving an import. when null the type of the property is used for Dependency Injection location
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ImportAttribute.Required">
+            <summary>
+            If true then construction will fail if import cannot be found. (true by default)
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.ImportAttribute.Volatile">
+            <summary>
+            If true this property will be resolved everytime rather than resolved once at startup.
+            This property does not effect if the import will be shared only if it will be resolved each time.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ImportConstructorAttribute">
+            <summary>
+            This attribute marks a constructor for use in object construction. 
+            It is only nessicary to use this if you have more than one constructor
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ImportMethodAttribute">
+            <summary>
+            Use this attribute to designate a method to be called at activation time to inject services.
+            Each parameter to the method will be resolved using the DI container, you can have multiple methods.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:StyleMVVM.DependencyInjection.NonRunTimeExportAttribute" -->
+        <member name="T:StyleMVVM.DependencyInjection.RuntimeOnlyAttribute">
+            <summary>
+            Use this attribute on the top of a class that you want to export only at Runtime
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.SharedAttribute">
+            <summary>
+            To be used on an object that is going to be shared between everyone.
+            Note: You can not use constructor params on a shared service. If you do 
+            you get back an instance but it will not be shared with other callers.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.SharedAttribute.Permanent">
+            <summary>
+            By default this is false and should only be set to true if you want the
+            shared export to be held for the lifetime of the container. 
+            Services like IDispatchedMessenger and IReflectionService are true.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.SingletonAttribute">
+            <summary>
+            Exports marked with this attribute will be used like a singleton. Once instantiated the instance will
+            be held and used to satisfy imports for the lifetime of the container.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.SingletonAttribute.ProvideContainer">
+            <summary>
+            Provide a new lifecycle container for the export
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.UnitTestOnlyAttribute">
+            <summary>
+            Use this to attribute a class as exporting only at unit test time
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Suspension.SuspensionManager">
+            <summary>
+            SuspensionManager captures global session state to simplify process lifetime management
+            for an application.  Note that session state will be automatically cleared under a variety
+            of conditions and should only be used to store information that would be convenient to
+            carry across sessions, but that should be disacarded when an application crashes or is
+            upgraded.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Suspension.SuspensionManager.SaveAsync">
+            <summary>
+            Save the current <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.  Any <see cref="T:System.Windows.Controls.Frame"/> instances
+            registered with <see cref="M:StyleMVVM.Suspension.SuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> will also preserve their current
+            navigation stack, which in turn gives their active <see cref="T:System.Windows.Controls.Page"/> an opportunity
+            to save its state.
+            </summary>
+            <returns>An asynchronous task that reflects when session state has been saved.</returns>
+        </member>
+        <member name="M:StyleMVVM.Suspension.SuspensionManager.RestoreAsync">
+            <summary>
+            Restores previously saved <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.  Any <see cref="T:System.Windows.Controls.Frame"/> instances
+            registered with <see cref="M:StyleMVVM.Suspension.SuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> will also restore their prior navigation
+            state, which in turn gives their active <see cref="T:System.Windows.Controls.Page"/> an opportunity restore its
+            state.
+            </summary>
+            <returns>An asynchronous task that reflects when session state has been read.  The
+            content of <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/> should not be relied upon until this task
+            completes.</returns>
+        </member>
+        <member name="M:StyleMVVM.Suspension.SuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)">
+            <summary>
+            Registers a <see cref="T:System.Windows.Controls.Frame"/> instance to allow its navigation history to be saved to
+            and restored from <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.  Frames should be registered once
+            immediately after creation if they will participate in session state management.  Upon
+            registration if state has already been restored for the specified key
+            the navigation history will immediately be restored.  Subsequent invocations of
+            <see cref="M:StyleMVVM.Suspension.SuspensionManager.RestoreAsync"/> will also restore navigation history.
+            </summary>
+            <param name="frame">An instance whose navigation history should be managed by
+            <see cref="T:StyleMVVM.Suspension.SuspensionManager"/></param>
+            <param name="sessionStateKey">A unique key into <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/> used to
+            store navigation-related information.</param>
+        </member>
+        <member name="M:StyleMVVM.Suspension.SuspensionManager.UnregisterFrame(System.Windows.Controls.Frame)">
+            <summary>
+            Disassociates a <see cref="T:System.Windows.Controls.Frame"/> previously registered by <see cref="M:StyleMVVM.Suspension.SuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/>
+            from <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.  Any navigation state previously captured will be
+            removed.
+            </summary>
+            <param name="frame">An instance whose navigation history should no longer be
+            managed.</param>
+        </member>
+        <member name="M:StyleMVVM.Suspension.SuspensionManager.SessionStateForFrame(System.Windows.Controls.Frame)">
+            <summary>
+            Provides storage for session state associated with the specified <see cref="T:System.Windows.Controls.Frame"/>.
+            Frames that have been previously registered with <see cref="M:StyleMVVM.Suspension.SuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> have
+            their session state saved and restored automatically as a part of the global
+            <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.  Frames that are not registered have transient state
+            that can still be useful when restoring pages that have been discarded from the
+            navigation cache.
+            </summary>
+            <remarks>Apps may choose to rely on <see cref="!:LayoutAwarePage"/> to manage
+            page-specific state instead of working with frame session state directly.</remarks>
+            <param name="frame">The instance for which session state is desired.</param>
+            <returns>A collection of state subject to the same serialization mechanism as
+            <see cref="P:StyleMVVM.Suspension.SuspensionManager.SessionState"/>.</returns>
+        </member>
+        <member name="P:StyleMVVM.Suspension.SuspensionManager.SessionState">
+            <summary>
+            Provides access to global session state for the current session.  This state is
+            serialized by <see cref="M:StyleMVVM.Suspension.SuspensionManager.SaveAsync"/> and restored by
+            <see cref="M:StyleMVVM.Suspension.SuspensionManager.RestoreAsync"/>, so values must be serializable by
+            <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> and should be as compact as possible.  Strings
+            and other self-contained data types are strongly recommended.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Utilities.GenericWeakAction`1.#ctor(System.Action{`0},System.Boolean)">
+            <summary>
+            Use this method if you want to create a compiled linq accessor. 
+            Its a slight penalty up front but is much faster if you call it alot.
+            </summary>
+            <param name="action"></param>
+            <param name="compiledAccessor"></param>
+        </member>
+        <member name="M:StyleMVVM.Utilities.GenericWeakAction`2.#ctor(System.Action{`0,`1},System.Boolean)">
+            <summary>
+            Use this method if you want to create a compiled linq accessor. 
+            Its a slight penalty up front but is much faster if you call it alot.
+            </summary>
+            <param name="action"></param>
+            <param name="compiledAccessor"></param>
+        </member>
+        <member name="M:StyleMVVM.Utilities.GenericWeakAction`2.#ctor(System.Delegate)">
+            <summary>
+            Use this method if you want to create a compiled linq accessor. 
+            Its a slight penalty up front but is much faster if you call it alot.
+            </summary>
+            <param name="action"></param>
+            <param name="compiledAccessor"></param>
+        </member>
+        <member name="M:StyleMVVM.Utilities.GenericWeakAction`2.#ctor(System.Delegate,System.Boolean)">
+            <summary>
+            Use this method if you want to create a compiled linq accessor. 
+            Its a slight penalty up front but is much faster if you call it alot.
+            </summary>
+            <param name="action"></param>
+            <param name="compiledAccessor"></param>
+        </member>
+        <member name="T:StyleMVVM.Utilities.SerializationHelper">
+            <summary>
+            This class contains generic methods to serialize and deserialize objects to files
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Validation.Impl.Fluent.FluentRuleBuilder`1.CreateTestStatements(StyleMVVM.Validation.Impl.Fluent.ResourceLoader,StyleMVVM.Validation.Impl.Fluent.FluentPropertyExpressionProvider{`0},System.Nullable{System.Boolean},System.Collections.Generic.List{StyleMVVM.Validation.Impl.Fluent.IFluentOperator{`0}},System.String@)">
+            <summary>
+            Create the statement to be used in an If statement, it does not flag any errors
+            </summary>
+            <param name="fluentResources"></param>
+            <param name="expressionProvider"></param>
+            <param name="andOrLogic"></param>
+            <param name="logicBlocks"></param>
+            <param name="logicMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Validation.Impl.Fluent.FluentRuleBuilder`1.CreateErrorCaseStatements(StyleMVVM.Validation.Impl.Fluent.ResourceLoader,StyleMVVM.Validation.Impl.Fluent.FluentPropertyExpressionProvider{`0},System.Nullable{System.Boolean},System.Collections.Generic.List{StyleMVVM.Validation.Impl.Fluent.IFluentOperator{`0}},System.String@)">
+            <summary>
+            Creates a set of statements to be used as part of the Then case or Else case of a rule.
+            It will flag properties for errors 
+            </summary>
+            <param name="fluentResources"></param>
+            <param name="expressionProvider"></param>
+            <param name="andOrLogic"></param>
+            <param name="logicBlocks"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Validation.Impl.Fluent.FluentRuleBuilder`1.GeneratePropertyErrorMessage(StyleMVVM.Validation.Impl.Fluent.ResourceLoader,StyleMVVM.Validation.Impl.Fluent.IFluentOperator{`0},StyleMVVM.Validation.Impl.Fluent.FluentPropertyExpressionProvider{`0},System.String)">
+            <summary>
+            Create the statement for calling executionContext.AddError or executionContext.AddRequired
+            </summary>
+            <param name="fluentResources"></param>
+            <param name="provider"></param>
+            <param name="expressionProvider"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.BaseViewModel">
+            <summary>
+            Base View Model for Style, if you inherit from this you will inherit the ViewModel attribute and import your DI container
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.BaseViewModel.Container">
+            <summary>
+            The DI container this object should use by default
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.EditableDataViewModel`1">
+            <summary>
+            Represents a ViewModel that wraps a data value of type T.
+            It automatically tracks edits and can rollback or commit to the value
+            DataBinding should go directly against this data context not the Value object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.EditablePageViewModel`1">
+            <summary>
+            Represents a Page ViewModel that wraps a data value of type T.
+            It automatically tracks edits and can rollback or commit to the value
+            DataBinding should go directly against this data context not the Value object
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.PageViewModel">
+            <summary>
+            This is the default implementation for ViewModels associated with a Page
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.INavigationViewModel">
+            <summary>
+            This interfaces is implemented by ViewModels that are interested
+            in page Navigation (use only as ViewModels for Page Views)
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.INavigationParameterAwareViewModel.NavigationParameter">
+            <summary>
+            The NavigationParameter for the Page this ViewModel is associated with
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.INavigationViewModel.NavigatedTo(System.Object,StyleMVVM.View.StyleNavigationEventArgs)">
+            <summary>
+            Called when the Page is Navigated To
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.INavigationViewModel.NavigatedFrom(System.Object,StyleMVVM.View.StyleNavigationEventArgs)">
+            <summary>
+            Called when the PAge is navigated from
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.INavigationViewModel.NavigatingFrom(System.Object,StyleMVVM.View.StyleNavigatingCancelEventArgs)">
+            <summary>
+            Called directly before the page is navigated away from
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IViewAware">
+            <summary>
+            This interface is implemented by ViewModels that need access to the
+            view they are associated to
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.IViewAware.View">
+            <summary>
+            The view this viewmodel is associated with
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.ILoadedAwareViewModel">
+            <summary>
+            ViewModels implement this interface when they want to
+            hook into the FrameworkElement Loaded/Unloaded events
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.ILoadedAwareViewModel.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the view is Loaded
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.ILoadedAwareViewModel.OnUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the view is Unloaded
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IPopupViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.RegionAwareViewModel">
+            <summary>
+            This is a base ViewModel designed to handle Region navigation. This is inlu 
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.RegionAwareViewModel.Region">
+            <summary>
+            This is the current region for the ViewModel. 
+            It is held as a Weak reference so I do not recommend holding a strong reference to it
+            That includes data binding.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.ViewModelAttribute">
+            <summary>
+            This is meant to be attributed on classes that are viewModels
+            It Exports the class under the classes Name with no namespace
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:StyleMVVM.Validation.Impl.Fluent.ResourceLoader" -->
+        <member name="T:StyleMVVM.Bootstrapper">
+            <summary>
+            This is the base implementation for IBootstrapper. 
+            It is also where the global instance of the IBootstrapper lives.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:StyleMVVM.IBootstrapper" -->
+        <member name="M:StyleMVVM.IBootstrapper.Start">
+            <summary>
+            starts the bootstrapper and container
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.IBootstrapper.Start(System.Boolean)">
+            <summary>
+            starts the bootstrapper and container
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.IBootstrapper.Launched">
+            <summary>
+            Called when the App is launched
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.IBootstrapper.Shutdown">
+            <summary>
+            shuts down the boot strapper and container
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.IBootstrapper.Container">
+            <summary>
+            The default DI Container for the bootstrapper
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Bootstrapper.#ctor">
+            <summary>
+            Default constructor registers this bootstraper as the default Instance
+            and then create the container and register the default factories
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Bootstrapper.#ctor(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Constructor where you provide the Container instead of allowing the bootstrapper to create one
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:StyleMVVM.Bootstrapper.Start">
+            <summary>
+            Starts the bootstrapper
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Bootstrapper.Start(System.Boolean)">
+            <summary>
+            Starts the bootstrapper
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Bootstrapper.Shutdown">
+            <summary>
+            Shuts the bootstrapper down
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Bootstrapper.HasInstance">
+            <summary>
+            Is there an Instance created
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Bootstrapper.InstanceIsReady">
+            <summary>
+            Returns true if there is a bootstrapper and it is ready
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Bootstrapper.Instance">
+            <summary>
+            Default instance of the boostrapper.
+            This Property will create on if one does not exist and register the main apps exports
+            This is not the recommend way of doing it.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Bootstrapper.RegisterStyleAssembly">
+            <summary>
+            Should the IDependencyInjectionContainer register the StyleMVVM library for exports
+            This is by default true and shouldn't be changed unless you are prepared to 
+            handle all needed export types.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Bootstrapper.Container">
+            <summary>
+            The DI container for the bootstrapper
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IExportStrategyFactory">
+            <summary>
+            When IDependencyInjectionContainerConfiguration is searching an assembly for exports
+            it first tries to export the class, it then will call all registered Factories 
+            to see if others wish to export it.
+            Note: IExportStrategyFactory classes can not be exported they must be registered with the container manually
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategyFactory.CreateStrategy(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,System.Type,System.Collections.Generic.IEnumerable{System.Object},System.Boolean)">
+            <summary>
+            Create an activation strategy for the provided type
+            </summary>
+            <param name="container">IDepencyInjectionContainer this factory is to be used in.
+            Note: when this method is called there will be no exports available. </param>
+            <param name="type">type to create the strategy for</param>
+            <param name="attributes">attributes on the class</param>
+            <param name="alreadyExported"></param>
+            <returns>activation strategy for the type if there is one.</returns>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.IActivationAware">
+            <summary>
+            Classes that implement this interface will will have the Activate method called when the class is constructed and all imports satisfied
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationAware.Activate">
+            <summary>
+            Called when the class is first created and all imports have been satisfied
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.IActivationService">
+            <summary>
+            This service creatse and clones objects for interested parties.
+            The base implementation uses cached compiled Linq Expressions for performance
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.Inject(System.Object)">
+            <summary>
+            Injects dependencies into an object based on it's attributes.
+            </summary>
+            <param name="injectObject"></param>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.Inject(StyleMVVM.DependencyInjection.IInjectionContext,System.Object)">
+            <summary>
+            Injects dependencies into an object based on it's attributes
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="injectObject"></param>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.CreateByType(StyleMVVM.DependencyInjection.IInjectionContext,System.Type,System.Object[])">
+            <summary>
+            Creates a new instance of createType
+            All imports will be satisfied and message handlers registered
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="createType"></param>
+            <param name="constructorParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.DeepClone(System.Object)">
+            <summary>
+            Creates a deep clone of the specified object.
+            </summary>
+            <typeparam name="T">Type of object to clone</typeparam>
+            <param name="cloneValue">object to clone</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.DeepCloneIntoInstance(System.Object,System.Object)">
+            <summary>
+            Clone one object into another.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cloneValue"></param>
+            <param name="tInstance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationService.CreateActivationStrategy(StyleMVVM.Data.Activation.IActivationTypeInfo)">
+            <summary>
+            Creates a new activation strategy based on the typeInfo provided.
+            </summary>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationService.TypeAugmenter">
+            <summary>
+             Allows you to override how type is rendered.
+             Must be set at startup for everything starts.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.CompiledActivationStrategy">
+            <summary>
+            The CompiledActivationStrategy is the heart of the DependencyInjectionContainer
+            Using Linq Expressions it compiles a method that will construct an object
+            using the provided parameters. 
+            Then import all needed properties and Register for all messages.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.IActivationStrategy">
+            <summary>
+            Represents a class that can activate an object (used by the activation service.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationStrategy.Initialize">
+            <summary>
+            Initialize the strategy
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationStrategy.Activate(StyleMVVM.DependencyInjection.IInjectionContext,System.Object[])">
+            <summary>
+            Activate an instance of the object
+            </summary>
+            <param name="container">DI container</param>
+            <param name="injectionContext">injection context</param>
+            <param name="constructorParams">parameters to pass to the constructor</param>
+            <returns>instance</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.IActivationStrategy.GetActivationStrategyDelegate">
+            <summary>
+            Returns a delegate that will activate the strategy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationStrategy.Container">
+            <summary>
+            Container this strategy is associated with
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationStrategy.ActivationService">
+            <summary>
+            Activation service this strategy is associated with
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationStrategy.Suspendable">
+            <summary>
+            should this object type be registered for suspension
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationStrategy.RegisterHandlers">
+            <summary>
+            should this type be registered for messages
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.Activation.IActivationStrategy.PipelineHandlers">
+            <summary>
+            Are there any pipeline handlers asscoiated with this strategy
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.CompiledActivationStrategy.GenerateMethod">
+            <summary>
+            Generates and returns a Function that creates and satisfies imports
+            using Linq Expressions to generate a very efficent delegate.
+            </summary>
+            <param name="importProperties"></param>
+            <param name="initializeProperties"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.CompiledActivationStrategy.CreateInjectionTargetSetStatement(System.Linq.Expressions.ParameterExpression,System.Type,System.Object,System.Object[])">
+            <summary>
+            This method sets the InjectionType property on the injectionContext
+             creating statement injectionContext.InjectionType = injectionType;
+            </summary>
+            <param name="injectionContextParameter"></param>
+            <param name="injectionType"></param>
+            <param name="injectionTarget"></param>
+            <param name="injectionTargetAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.CompiledActivationStrategy.CreateImportVariableExpression(System.Collections.Generic.List{System.Linq.Expressions.Expression},System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression,StyleMVVM.DependencyInjection.IExportActivator,System.Type,System.String,System.Boolean,System.Boolean,System.Object,System.Object[])">
+            <summary>
+            All imports are located before the object is created. Call this method to get an import variable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.ICustomInitialization">
+            <summary>
+            Objects that implement this interface will have the CustomInitialization method called directly after being created.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Activation.ICustomInitialization.CustomInitialization(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,StyleMVVM.DependencyInjection.IInjectionContext)">
+            <summary>
+            Called directly after an object is created but before Properties are injected and MethodInjection
+            </summary>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+        </member>
+        <member name="T:StyleMVVM.Data.Activation.ITypeAugmenter">
+            <summary>
+            This class allows you to augment the types that are produced by the activation service.
+            In particular the Aspects module uses this to replace the inType with a subclassed version.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.IReflectionService">
+            <summary>
+            Simple service that allows the caller to access properties and call method on objects 
+            the only have string names for.
+            The Default implementation uses cached compiled Linq Expressions for performance reasons
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Gets a named property value from an object
+            </summary>
+            <param name="valueObject">target object</param>
+            <param name="propertyName">property name (can be nested A.B.C.D)</param>
+            <returns>property value</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.GetPropertyValue(System.Object,System.String,System.Object,System.Boolean)">
+            <summary>
+            Gets a named property value from an object
+            </summary>
+            <param name="valueObject">target object</param>
+            <param name="propertyName">property name (can be nested A.B.C.D)</param>
+            <param name="index">index for final property</param>
+            <param name="throwIfPathMissing">throw an exception if any part of the path is missing</param>
+            <returns>property value</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            Sets a value into a named Property
+            </summary>
+            <param name="valueObject">target object</param>
+            <param name="propertyName">property name to fetch</param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.SetPropertyValue(System.Object,System.String,System.Object,System.Object,System.Boolean)">
+            <summary>
+            Sets a value into a named Property
+            </summary>
+            <param name="valueObject">target object</param>
+            <param name="propertyName">property name to fetch</param>
+            <param name="newValue"></param>
+            <param name="index"></param>
+            <param name="createIfPathMissing"></param>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.CallMethod(System.Object,System.String,System.Boolean,System.Object[])">
+            <summary>
+            Calls a method in the target by a specified name.
+            For a method with a return type of void use T type of object
+            </summary>
+            <typeparam name="T">the return type of the method</typeparam>
+            <param name="target">the target object</param>
+            <param name="methodName">method name (can be dotted form A.B.C</param>
+            <param name="throwIfPathMissing">throw an exception if part of the path is missing</param>
+            <param name="parameters">parameters to the method</param>
+            <returns>the value the method returns</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.CreateGetPropertyDelegate(System.Type,System.String,System.Type)">
+            <summary>
+            Creates a new delegate that can be used to access a property in an object by property name
+            </summary>
+            <param name="instanceType">object type to target</param>
+            <param name="propertyName">property name (can be dotted form A.B.C)</param>
+            <returns>new property delegate</returns>
+        </member>
+        <member name="M:StyleMVVM.Data.IReflectionService.CreateSetPropertyDelegate(System.Type,System.String,System.Type)">
+            <summary>
+            Creates a new delegate that be used to set a property on an object by property name
+            </summary>
+            <param name="instanceType">object type to target</param>
+            <param name="propertyName">property name (can be dotted form A.B.C)</param>
+            <returns>new property delegate</returns>
+        </member>
+        <member name="T:StyleMVVM.Data.ReflectionService">
+            <summary>
+            This is the default implementation of the IReflectionService
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IDependencyInjectionContainerAware">
+            <summary>
+            Classes that implement this interface will have Container populated upon activation.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IDependencyInjectionContainerAware.Container">
+            <summary>
+            Dependency container context that this object was created in.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.ReflectionService.KnownTypes">
+            <summary>
+            List of custom types provided to the <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> when
+            reading and writing session state.  Initially empty, additional types may be
+            added to customize the serialization process.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.Transform.ITransformMap">
+            <summary>
+            This interface allows you to map a transform between types.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Data.Transform.ITransformMap.IsLooseTransform(System.Boolean)">
+            <summary>
+            Are properties allowed to be unmapped in the transform
+            </summary>
+            <param name="isLoose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Transform.ITransformMap.InType(System.Type)">
+            <summary>
+            Type to transform from
+            </summary>
+            <param name="inType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Transform.ITransformMap.OutType(System.Type)">
+            <summary>
+            Type to tranform to
+            </summary>
+            <param name="outType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Data.Transform.ITransformMap.MapComplete">
+            <summary>
+            You must call this when you are done with your map.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Data.Transform.ITransformMap.MapProperty">
+            <summary>
+            Use this to map properties between types
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Data.Transform.ITransformService">
+            <summary>
+            This service offers a code free way to transform from one type to another type.
+            
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.CoreExportStartOrder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IInjectionContext">
+            <summary>
+            During an injection the context contains information about the injection as well as extra data
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.DisposalScope">
+            <summary>
+            DisposalScope holds a set of objects waiting to be disposed when the disposal scope is disposed
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IDisposalScope">
+            <summary>
+            IDisposalScope represents an object that holds a set of object for disposing
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDisposalScope.AddObject(System.IDisposable)">
+            <summary>
+            Add an object to be disposed when the scope is done
+            </summary>
+            <param name="newObject"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDisposalScope.AddObject(System.IDisposable,StyleMVVM.DependencyInjection.BeforeDisposalCleanupDelegate)">
+            <summary>
+            Add an object to be disposed when the scope is done, it takes a delegate to be called before disposal happens
+            </summary>
+            <param name="newObject"></param>
+            <param name="cleanupDelegate"></param>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.DisposalScope.DisposalScopeStringKey">
+            <summary>
+            Key to be used to lookup disposal scope
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportEnvironment">
+            <summary>
+            Defined what environement the application is running in or compenent is Exported in
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IExportActivator">
+            <summary>
+            This interface represents the way to activate an export, be it IExportStrategy or some other custom way of defining a value
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportActivator.Activate(StyleMVVM.DependencyInjection.IInjectionContext,System.Object[])">
+            <summary>
+            Activate an instance of the object
+            </summary>
+            <param name="injectionContext">injection context</param>
+            <param name="constructorParams">parameters to pass to the constructor</param>
+            <returns>instance</returns>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportActivator.Container">
+            <summary>
+            The activation container associated with this container
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportActivator.ActivationService">
+            <summary>
+            The activation service this Export should use.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IDependencyInjectionContainer">
+            <summary>
+            This is the base IOC Container for StyleMVVM.
+            All methods are thread safe unless marked.
+            It does not however handle calling IDisposable.Dispose()
+            that onus falls on the consumer
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Start">
+            <summary>
+            Starts the DependencyInjectionContainer (nothing is offically exported till this time)
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Start(System.Boolean)">
+            <summary>
+            Starts the DependencyInjectionContainer (nothing is offically exported till this time)
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Launch">
+            <summary>
+            Called Once the UI has launched, core exports marked as UI will be created
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Shutdown">
+            <summary>
+            Shutsdown the DependencyInjectionContainer and all shared obects 
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.CreateInjectionContext">
+            <summary>
+            Creates a new IInjectionContext that contains all the current global conditions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.CreateInjectionContext(StyleMVVM.DependencyInjection.IDisposalScope)">
+            <summary>
+            Creates a new IInjectionContext that contains all the current global conditions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.CreateDisposableInjectionContext">
+            <summary>
+            Creates a new disposable injection context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.CreateDisposableInjectionContext(StyleMVVM.DependencyInjection.IDisposalScope)">
+            <summary>
+            Creates a new disposable injection context
+            </summary>
+            <param name="disposalScope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.AddCondition(StyleMVVM.DependencyInjection.ExportConditionProviderDelegate)">
+            <summary>
+            Allows you to add a global condition to all injection contexts.
+            Note: this Essentially is a short cut wrapper around AddContionValue where the value is true
+            </summary>
+            <param name="conditionName"></param>
+            <param name="exportCondition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.AddConditionValue(StyleMVVM.DependencyInjection.ExportConditionValueProviderDelegate)">
+            <summary>
+            Allows you to add a global condition value to all injection contexts
+            </summary>
+            <param name="exportConditionValue"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RemoveConditionValue(StyleMVVM.DependencyInjection.ExportConditionValueProviderDelegate)">
+            <summary>
+            Removes a condition value from the container
+            </summary>
+            <param name="exportConditionValue"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Inject(System.Object)">
+            <summary>
+            Processes an object for any Imports and statisfies them.
+            </summary>
+            <param name="injectionObject"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Locate(System.String,System.Object[])">
+            <summary>
+            Locates an object with a particular exportName.  
+            </summary>
+            <param name="exportName">exportName to look for</param>
+            <param name="constructorParams">parameters to the constructor if there are any</param>
+            <returns>returns export or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateWithContext(StyleMVVM.DependencyInjection.IInjectionContext,System.String,System.Object[])">
+            <summary>
+            Locate an object and specify the injection context, allowing you to have finer control over the injection process
+            </summary>
+            <param name="exportName"></param>
+            <param name="injectionContext"></param>
+            <param name="constructorParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateByType(System.Type,System.Object[])">
+            <summary>
+            Locates an Export of a particular Type
+            </summary>
+            <param name="exportType">Export Type</param>
+            <param name="constructorParams">parameters to the constructor if there are any</param>
+            <returns>returns export or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateByTypeWithContext(StyleMVVM.DependencyInjection.IInjectionContext,System.Type,System.Object[])">
+            <summary>
+            Lcoate an object by type while specifying the injection context
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="exportType"></param>
+            <param name="constructorParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateByType(StyleMVVM.Data.TypeWrapper,System.Object[])">
+            <summary>
+            Locates an Export of a particular Type
+            </summary>
+            <param name="exportType">Export Type</param>
+            <param name="constructorParams">parameters to the constructor if there are any</param>
+            <returns>returns export or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByType(System.Type)">
+            <summary>
+            Locates all exports of Type T
+            </summary>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByTypeWithContext(StyleMVVM.DependencyInjection.IInjectionContext,System.Type)">
+            <summary>
+            Located all exports of Type T and specify the injection context
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByTypeWithContext(StyleMVVM.DependencyInjection.IInjectionContext,System.Type,System.Collections.IList)">
+            <summary>
+            Locate all exports of type exportType into the out list
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="exportType"></param>
+            <param name="outList"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByType(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Locates all exports of Type T
+            </summary>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAll(System.String)">
+            <summary>
+            Lcoate all exports of name ExportName
+            </summary>
+            <param name="exportName">name to locate</param>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllWithContext(StyleMVVM.DependencyInjection.IInjectionContext,System.String)">
+            <summary>
+            Locate all export using the name specified and the injection context provided.
+            </summary>
+            <param name="injectionContext"></param>
+            <param name="exportName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByType(System.Type,StyleMVVM.DependencyInjection.FilterExport)">
+            <summary>
+            Locates all exports of Type T
+            </summary>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllByType(StyleMVVM.Data.TypeWrapper,StyleMVVM.DependencyInjection.FilterExport)">
+            <summary>
+            Locates all exports of Type T
+            </summary>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAll(System.String,StyleMVVM.DependencyInjection.FilterExport)">
+            <summary>
+            Lcoate all exports of name ExportName
+            </summary>
+            <param name="exportName">name to locate</param>
+            <param name="filterMethod">method that can filter the returns based on IExportStrategy</param>
+            <returns>a collection of T (empty collection if none)</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateExportType(System.String)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportName">the name to locate</param>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateExportTypeByType(System.Type)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportType">the name to locate</param>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateExportTypeByType(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportType">the name to locate</param>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllExportTypes(System.String)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportName">the name to locate</param>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllExportTypesByType(System.Type)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.LocateAllExportTypesByType(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportName">the name to locate</param>
+            <returns>export Type or null</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RegisterAssembly(System.Object)">
+            <summary>
+            Register all Exported types in an assembly
+            </summary>
+            <param name="assembly">assembly to register</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Register(System.Type)">
+            <summary>
+            Register a type for export
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Register(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Register a type for export
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RegisterExportFunction(System.Type,StyleMVVM.DependencyInjection.ExportFunction)">
+            <summary>
+            Register an export and the export function will be called at locate time
+            </summary>
+            <param name="exportType">Type to export, this is used as the type for import, initialize and Activate method</param>
+            <param name="activatedType"></param>
+            <param name="exportFunction">method to construct the export</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RegisterExportJS(StyleMVVM.DependencyInjection.ExportFunction)">
+            <summary>
+            Register an export and the export function will be called at locate time
+            </summary>
+            <param name="exportFunction">method to construct the export</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RegisterFactory(StyleMVVM.DependencyInjection.IExportStrategyFactory)">
+            <summary>
+            Register an activatoin factory to be called when scanning assemblies.
+            </summary>
+            <param name="newFactory"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.UnregisterFactory(StyleMVVM.DependencyInjection.IExportStrategyFactory)">
+            <summary>
+            Unregister an activatoin factory.
+            </summary>
+            <param name="oldFactory"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.BlackListExport(System.String)">
+            <summary>
+            Black lists a particular export (Fullname)
+            </summary>
+            <param name="exportType"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.BlackListExportType(System.Type)">
+            <summary>
+            Black list a particular export by Type
+            </summary>
+            <param name="exportType"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.BlackListExportType(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Black list a particular export by Type
+            </summary>
+            <param name="exportType"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.ProcessRegistration">
+            <summary>
+            This method tells the container to process all new registraion since last the last time it was called.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.GetAllStrategies">
+            <summary>
+            Returns a list of all known strategies.
+            </summary>
+            <returns>returns all known strategies</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.GetStrategy(System.String)">
+            <summary>
+            Finds the best matching strategy exported by the name provided
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.GetStrategy(System.Type)">
+            <summary>
+            Finds the best matching strategy exported by the name provided
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.GetStrategies(System.String)">
+            <summary>
+            Get the list of exported strategies sorted by best option.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.GetStrategies(System.Type)">
+            <summary>
+            Get the list of exported strategies sorted by best option.
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.AddStrategy(StyleMVVM.DependencyInjection.IExportStrategy)">
+            <summary>
+            Adds a new strategy to the container
+            </summary>
+            <param name="addStrategy"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.RemoveStrategy(StyleMVVM.DependencyInjection.IExportStrategy)">
+            <summary>
+            Allows the caller to remove a strategy from the container
+            </summary>
+            <param name="knownStrategy">strategy to remove</param>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.AutoRegisterUnknown">
+            <summary>
+            If a concrete type is requested and it is not registered an export strategy will be created.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Environment">
+            <summary>
+            Defines what environment the IDependencyInjectionContainer is operating in
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.ActivationService">
+            <summary>
+             The instance of the activation service the Container is using.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.Comparision">
+            <summary>
+            This property allows you to create your own comparison method.
+            </summary>
+        </member>
+        <member name="E:StyleMVVM.DependencyInjection.IDependencyInjectionContainer.ResolveUnknownExport">
+            <summary>
+            You can handle this event to provide an export strategy for any unknown export
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.BeforeDisposalCleanupDelegate">
+            <summary>
+            This delegate is used to allow for an objects cleanup for it is disposed
+            </summary>
+            <param name="objectBeingDisposed"></param>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration">
+            <summary>
+            Represents a configuration object for an assembly
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.ExportInterface(System.Type)">
+            <summary>
+            Export all objects that implements the specified interface
+            </summary>
+            <param name="interfaceType">interface type</param>
+            <returns>returns self</returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.ExportTypesBasedOn(System.Type)">
+            <summary>
+            Export all types based on speficied type
+            </summary>
+            <param name="baseType">base type to export</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.Excluding(System.Type)">
+            <summary>
+            Exclude a particular type from exporting
+            </summary>
+            <param name="excludeType">exclude type</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.WithPriority(System.Int32)">
+            <summary>
+            Export with the spcified priority
+            </summary>
+            <param name="priority">priority to export at</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.InEnvironment(StyleMVVM.DependencyInjection.ExportEnvironment)">
+            <summary>
+            Export in the specified Environment
+            </summary>
+            <param name="environment">environment to export in</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.AndShared">
+            <summary>
+            Exports are to be marked as shared
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.AndSharedPermenantly">
+            <summary>
+            Obsolete infavor of AndSingleton
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.AndSingleton">
+            <summary>
+            Export services as Singletons
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.ExportAttributedTypes">
+            <summary>
+            Export all attributed types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.CoreExport(StyleMVVM.DependencyInjection.CoreExportStartOrder)">
+            <summary>
+            Marks all exports as Core Exports
+            </summary>
+            <param name="startOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.When(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.Unless(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.AndCondition(StyleMVVM.DependencyInjection.IExportCondition)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportAssemblyConfiguration.GetExportStrategies">
+            <summary>
+            Gets all known Export Strategies (internal method)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IExportConfiguration">
+            <summary>
+            This interface is used to define an export.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.WithPriority(System.Int32)">
+            <summary>
+            Defines the priority to export at
+            </summary>
+            <param name="priority"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.As(System.Type)">
+            <summary>
+            Export as a particular type
+            </summary>
+            <param name="exportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.InEnvironment(StyleMVVM.DependencyInjection.ExportEnvironment)">
+            <summary>
+            Defines which environment this export should be exported in
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AsName(System.String)">
+            <summary>
+            Export this type as a particular name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndShared">
+            <summary>
+            Export will be shared between all callers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndSharedPermenantly">
+            <summary>
+            Obsolete infavor of AndSingleton
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndSingleton">
+            <summary>
+            Export will be treated as a singleton for the lifetime of the container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndCachedWithAbsoluteExpiration(System.TimeSpan)">
+            <summary>
+            Allows you to mark this export to be cached using an absolute expire time after creation
+            </summary>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndCachedWithSlidingExpiration(System.TimeSpan)">
+            <summary>
+            Allows you to mark this export to be cached using a sliding expiration time
+            </summary>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportDefaultConstructor">
+            <summary>
+            Uses the first constructor found for importing (this recommended only when you have one constructor)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportConstructor(System.Object)">
+            <summary>
+            Allows you to specify an import constructor
+            </summary>
+            <param name="constructorInfo">ConstrcutorInfo object to use during construction</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.CoreExport(StyleMVVM.DependencyInjection.CoreExportStartOrder)">
+            <summary>
+            Mark this export as a Core export
+            </summary>
+            <param name="startOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.Initialize(System.String)">
+            <summary>
+            Mark a property for initialization
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.Initialize(System.String,System.Object)">
+            <summary>
+            Mark a property for initialization with a particular value
+            </summary>
+            <param name="propertyName"></param>
+            <param name="initalizeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportProperty(System.String)">
+            <summary>
+            Mark a property for import
+            </summary>
+            <param name="propertyName">property name to import</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportProperty(System.String,System.Boolean)">
+            <summary>
+            Mark a property for import and specify if its required
+            </summary>
+            <param name="propertyName"></param>
+            <param name="isRequired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportProperty(System.String,StyleMVVM.DependencyInjection.IExportActivator,System.Boolean)">
+            <summary>
+            Mark a property for import and provide an IExportActivator to resolve it
+            </summary>
+            <param name="propertyName"></param>
+            <param name="exportActivator">allows you to provide</param>
+            <param name="isRequired">is the property required</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportProperty(System.String,System.Boolean,System.String)">
+            <summary>
+            Mark a property for imort, specify if its required and specify what export name to use
+            </summary>
+            <param name="propertyName"></param>
+            <param name="isRequired"></param>
+            <param name="exportName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportMethod(System.String)">
+            <summary>
+            Mark a property for import
+            </summary>
+            <param name="methodName">property name to import</param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportMethod(System.String,System.Boolean)">
+            <summary>
+            Mark a property for import and specify if its required
+            </summary>
+            <param name="methodName"></param>
+            <param name="isRequired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ImportMethod(System.String,System.Boolean,System.String)">
+            <summary>
+            Mark a property for imort, specify if its required and specify what export name to use
+            </summary>
+            <param name="propertyName"></param>
+            <param name="isRequired"></param>
+            <param name="exportName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.ActivationMethod(System.String)">
+            <summary>
+            Method to call when activation is done
+            </summary>
+            <param name="activationMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.LifeCycleContainer(StyleMVVM.DependencyInjection.ILifeCycleContainer)">
+            <summary>
+            Specify a custom lifecycle container for export.
+            </summary>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.When(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.Unless(StyleMVVM.DependencyInjection.ExportConditionDelegate)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="conditionDelegate"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AndCondition(StyleMVVM.DependencyInjection.IExportCondition)">
+            <summary>
+            Adds a condition to the export
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.AutoWireProperties(System.Boolean)">
+            <summary>
+            Marks all properties on the object for injection
+            </summary>
+            <param name="required"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.WithMetadata(System.String,System.Object)">
+            <summary>
+            Adds metadata to an export
+            </summary>
+            <param name="metadataName"></param>
+            <param name="metadataValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.DisposalCleanupDelegate(StyleMVVM.DependencyInjection.BeforeDisposalCleanupDelegate)">
+            <summary>
+            You can provide a cleanup method to be called 
+            </summary>
+            <param name="disposalCleanupDelegate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportConfiguration.EnrichWith(StyleMVVM.DependencyInjection.EnrichWithDelegate,System.Int32)">
+            <summary>
+            Allows you to add custom activation logic to process before the object is returned.
+            </summary>
+            <param name="enrichWithDelegate"></param>
+            <param name="priority">order in which to apply enrichments</param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IExportStrategy">
+            <summary>
+            IActivationStrategy provides a mechanism to instantiate a particular export
+            a strategy can be exported under many names and types.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.Initialize">
+            <summary>
+            Initialize the strategy
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.AddPiplineHandler(StyleMVVM.DependencyInjection.IExportPipelineHandler)">
+            <summary>
+            Adds a new pipeline handler to the strategy
+            </summary>
+            <param name="pipelineHandler"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.RemovePipelineHandler(StyleMVVM.DependencyInjection.IExportPipelineHandler)">
+            <summary>
+            Removes the specified pipelined handler from the strategy
+            </summary>
+            <param name="pipelineHandler"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.MeetsConditions(StyleMVVM.DependencyInjection.IDependencyInjectionContainer,StyleMVVM.DependencyInjection.IInjectionContext)">
+            <summary>
+            Test if the export meets the condition
+            </summary>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.AddCondition(StyleMVVM.DependencyInjection.IExportCondition)">
+            <summary>
+            Add a condition to the export
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.RemoveCondition(StyleMVVM.DependencyInjection.IExportCondition)">
+            <summary>
+            Remove a condition from the export
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.IExportStrategy.Conditions">
+            <summary>
+            Gets all conditions for the export
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.ExportNames">
+            <summary>
+            Names this strategy should be known as.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.ExportedTypes">
+            <summary>
+            Types this strategy is exported under
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.ActivationType">
+            <summary>
+            Type to activate
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.ExternallyOwned">
+            <summary>
+            Marking an export as externally owned will tell the framework not to dispose of the export when it goes out of scope
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.DisposalCleanupDelegate">
+            <summary>
+            If your export implements IDisposable and is used in a IDisposalScope then this method allows you to inject cleanup logic before disposal
+            The use case for this is something like closing a wcf proxy before disposing it
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.LifeCycleContainer">
+            <summary>
+            This is the default life cycle container for this strategy. If null then the export will be created new each time.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.Suspendable">
+            <summary>
+            should this object type be registered for suspension
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.Environment">
+            <summary>
+            What environement is this strategy being exported under.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.Priority">
+            <summary>
+            What export priority is this being exported as
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.IsCoreExport">
+            <summary>
+            True when the object being exported should be part of Core application
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.CoreExportStartOrder">
+            <summary>
+            The order in which the core exports should be started.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.Metadata">
+            <summary>
+            List of metadata associated with this strategy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IExportStrategy.EnrichWithDelegates">
+            <summary>
+            List of enrich with delegates
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IGenericActivationStrategy">
+            <summary>
+            This class represnets an open generic strategy that will be used to 
+            close and create another strategy.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.IInjectionTargetInfo">
+            <summary>
+            Defines properties that are specific to the property that is being imported
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IInjectionTargetInfo.InjectionType">
+            <summary>
+            This is the type that is being injected into 
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IInjectionTargetInfo.InjectionTarget">
+            <summary>
+            The PropertyInfo or ParameterInfo that is being injected
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.DependencyInjection.IInjectionTargetInfo.InjectionTargetAttributes">
+            <summary>
+            Attributes associated with the target PropertyInfo or ParameterInfo that is provided
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ILifeCycleContainer">
+            <summary>
+            Classes that implement this interface can be used to manage the lifecycle of an export
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.ILifeCycleContainer.RetrieveObject(StyleMVVM.DependencyInjection.IExportStrategy,StyleMVVM.DependencyInjection.ExportLifeCycleMethod,StyleMVVM.DependencyInjection.IDependencyInjectionContainer,StyleMVVM.DependencyInjection.IInjectionContext,System.Object[])">
+            <summary>
+            Called by the export strategy when it needs to be located. The lifecycle container can decide how it should proceed.
+            </summary>
+            <param name="strategy"></param>
+            <param name="exportMethod"></param>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+            <param name="constructorParams"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.AttributedExportStrategy">
+            <summary>
+            The CompiledActivationStrategy is the heart of the DependencyInjectionContainer
+            Using Linq Expressions it compiles a method that will construct an object
+            using the provided parameters. 
+            Then import all needed properties and Register for all messages.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer">
+            <summary>
+            This is the default implementation of IDependencyInjectionContainer.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.#ctor">
+            <summary>
+            Default Constructor for the DI container
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.GetService(System.Type)">
+            <summary>
+            Gets the service object of the specified type.
+            </summary>
+            <returns>
+            A service object of type <paramref name="serviceType"/>.-or- null if there is no service object of type <paramref name="serviceType"/>.
+            </returns>
+            <param name="serviceType">An object that specifies the type of service object to get. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.RaiseUnknownExport(System.String,System.Type,System.Boolean,StyleMVVM.DependencyInjection.IInjectionContext)">
+            <summary>
+            
+            </summary>
+            <param name="exportName"></param>
+            <param name="exportType"></param>
+            <param name="resolveMultiple"></param>
+            <param name="injectionContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.LocateAllExportTypesByType(System.Type)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportType"></param>
+            <returns>
+            export Type or null
+            </returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.LocateAllExportTypesByType(StyleMVVM.Data.TypeWrapper)">
+            <summary>
+            Locate the type that is exporting this name.
+            </summary>
+            <param name="exportName">the name to locate</param>
+            <returns>
+            export Type or null
+            </returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.RegisterAssembly(System.Object)">
+            <summary>
+            Register all Exported types in an assembly
+            </summary>
+            <param name="assembly">assembly to register</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">assembly;cannot be null</exception>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.AddExportConfiguration(StyleMVVM.DependencyInjection.IBaseExportConfiguration)">
+            <summary>
+            Adds the export configuration to the container
+            </summary>
+            <param name="baseExportConfiguration">The base export configuration.</param>
+            <exception cref="T:System.ArgumentNullException">baseExportConfiguration</exception>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.CompareValues(StyleMVVM.DependencyInjection.IExportStrategy,StyleMVVM.DependencyInjection.IExportStrategy,StyleMVVM.DependencyInjection.ExportEnvironment)">
+            <summary>
+            This method compares 2 export strategies in a particular environment using ExportEnvironment attributes and ExportPriority attributes
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.DependencyInjectionContainer.ActivateObject``1(StyleMVVM.DependencyInjection.IInjectionContext,StyleMVVM.DependencyInjection.IExportStrategy,System.Object[])">
+            <summary>
+            Activates an instance of T for a given Export name and constructor parameters
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="strategy"></param>
+            <param name="constructorParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.GenericExportStrategy.FindClosedPropertyInfos(System.Type,StyleMVVM.DependencyInjection.Impl.InstanceExportStrategy)">
+            <summary>
+            This method goes through the imported properties and finds the property info's for the closed type 
+            The current property infos are open
+            </summary>
+            <param name="closedType"></param>
+            <param name="exportStrategy"></param>
+            <param name="propertyInfos"></param>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IDefaultDisposalScopeProvider">
+            <summary>
+            Classes that implement this interface can provide a DisposalScope when CreateInjectionContext is called
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.IDefaultDisposalScopeProvider.ProvideDisposalScope">
+            <summary>
+            Provide a disposal scope for an injection context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IExportMetadataAttribute">
+            <summary>
+            attributes that implement this interface can be used to provide 
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.Impl.IExportStrategyProviderAttribute">
+            <summary>
+            Attributes that implement this interface will be used tp create an export strategy 
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DependencyInjection.Impl.IExportStrategyProviderAttribute.ProvideStrategy(System.Type,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Called during export discovery, it is used to provide an export strategy for a type that is attributed
+            </summary>
+            <param name="exportType"></param>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportComparison">
+            <summary>
+            Compares to two export strategies based on the export environment of the container.
+            </summary>
+            <param name="exportA"></param>
+            <param name="exportB"></param>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportFunction">
+            <summary>
+            This delegate allows you to construct export manually rather than letting the container figure out how to provide an export
+            </summary>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+            <param name="cosntructorParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportConditionProviderDelegate">
+            <summary>
+            This delegate allows you to provide a global condition for the container
+            </summary>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.ExportConditionValueProviderDelegate">
+            <summary>
+            This delegate is called to provide an export condition value, where the condition name is the key and the condition value is defined as value
+            </summary>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.FilterExport">
+            <summary>
+            This delegate is used to filter out if an export should be included in a LocateAll
+            </summary>
+            <param name="exportStrategy">export to filter</param>
+            <returns>true include the export, false if you do not want to include the export in the result set</returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.EnrichWithDelegate">
+            <summary>
+            Using this delegate you can provide custom logic to the activation process overriding 
+            </summary>
+            <param name="container"></param>
+            <param name="injectionContext"></param>
+            <param name="injectedObject"></param>
+            <returns>return the initial object or return a wrapping object</returns>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.PermanentlySharedLifeCycleContainer">
+            <summary>
+            Obsolete infavor of SingletonLifeCycleContainer
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.DependencyInjection.SharedPerInjectionContainer">
+            <summary>
+            This is a life cycle container class that shares the export per Injection (i.e. for this activation and all it's children share the export)
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.DesignTimeBootstrapper.CreateDesignTimeBootstrapper">
+            <summary>
+            Creates a new Design time bootstrapper if DesignModeEnabled is true
+            and there isn't a bootstrapper already
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Logging.ILogAppender">
+            <summary>
+            This interface can be implemented and exported by a class that wants to participate in the logging subsystem as a consumer of log entries
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Logging.ILogAppender.Configure">
+            <summary>
+            Configure is called at application startup time
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.Logging.ILogAppender.Flush">
+            <summary>
+            Flush is called when the logging service is being forced to flush. The intention is that you flush any message buffers you have.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Logging.ILogAppender.Log(StyleMVVM.Logging.LogEntry)">
+            <summary>
+            Log method called when a log statement is recorded to the logging service. 
+            This method must be quick as it is run on which ever thread is calling log
+            </summary>
+            <param name="entry"></param>
+        </member>
+        <member name="P:StyleMVVM.Logging.ILogAppender.LoggingLevel">
+            <summary>
+            The general log level the log service is set at.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Logging.ILogService">
+            <summary>
+            This interface is implemented and exported by classes wanting to extend the logging infrastructure at the log service level
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Logging.ILogService.GetLogger(System.String)">
+            <summary>
+            Called by Logger to fetch a ILog class for specific logger name
+            </summary>
+            <param name="loggerName">logger name to locate</param>
+            <returns>ILog instance</returns>
+        </member>
+        <member name="T:StyleMVVM.Messenger.DispatchedMessenger">
+            <summary>
+            This class provides the default implementation for IDispatchedMessenger. 
+            It also includes an IDispatchedMessenger singleton instance that is resolved using the IoC container
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Messenger.IDispatchedMessenger">
+            <summary>
+            IDispatchedMessenger allows you to send messages between loosely coupled consumers.
+            Note: The default implementation of DispatchedMessenger uses WeakActions to call back consumers
+            so there is no need to unregister for garbage collection reasons.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.Send(System.Object)">
+            <summary>
+            Sends a message of Type T to consumers.
+            </summary>
+            <param name="message">message to send, cannot be null</param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.Register(System.Object)">
+            <summary>
+            Registers an action as a consumer of type T messages.
+            </summary>
+            <typeparam name="T">message Type</typeparam>
+            <param name="callback">message handler</param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.Register(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Registers an action as a consumer of type T messages.
+            </summary>
+            <typeparam name="T">message Type</typeparam>
+            <param name="callback">message handler</param>
+            <param name="background">should it be called back on a background thread</param>
+            <param name="holdReference"> </param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.RegisterMethod(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Registers a method info on a target for callback later.
+            </summary>
+            <typeparam name="T">message Type</typeparam>
+            <param name="target">handler object</param>
+            <param name="methodName"> </param>
+            <param name="background"> </param>
+            <param name="holdReference"> </param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.RegisterJSCallback(StyleMVVM.Data.TypeWrapper,StyleMVVM.Messenger.JSCallback,System.Boolean)">
+            <summary>
+            Registers a JavaScript callback
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.Unregister(System.Object)">
+            <summary>
+            Unregisters a consumer handler
+            </summary>
+            <param name="callback">action to unregister</param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.RegisterObjectHandlers(System.Object)">
+            <summary>
+            Allows you to register all methods on an object marked with MessageHandler attributes 
+            </summary>
+            <param name="handlerObject"></param>
+        </member>
+        <member name="M:StyleMVVM.Messenger.IDispatchedMessenger.UnregisterObjectHandlers(System.Object)">
+            <summary>
+            Allows you to unregister all methods on an object marked with MessageHandler attributes 
+            </summary>
+            <param name="handlerObject"></param>
+        </member>
+        <member name="P:StyleMVVM.Messenger.DispatchedMessenger.Instance">
+            <summary>
+            This the default implementation for IDispatchedMessenger resolved using the IoC container
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Module.IModule">
+            <summary>
+            Objects that implement and export this interface will be created at startup and it's Initialize method will be called
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Module.IModule.Initialize">
+            <summary>
+            After creation this method will be called. It is intended that you do any intialization you need and you can return a list
+            of Uri's that will be loaded as Resource dictionaries and Merged into the Application resources.
+            Note: In none XAML apps nothing is done with the URI
+            </summary>
+            <returns>list of resources to load into the application</returns>
+        </member>
+        <member name="M:StyleMVVM.Module.ModuleManager.RegisterExport(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Register ModuleManager with DI container.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:StyleMVVM.Suspension.FrameSuspensionManager.InternalSaveAsync">
+            <summary>
+            Save the current <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.  Any <see cref="T:System.Windows.Controls.Frame"/> instances
+            registered with <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> will also preserve their current
+            navigation stack, which in turn gives their active <see cref="T:System.Windows.Controls.Page"/> an opportunity
+            to save its state.
+            </summary>
+            <returns>An asynchronous task that reflects when session state has been saved.</returns>
+        </member>
+        <member name="M:StyleMVVM.Suspension.FrameSuspensionManager.InternalRestoreAsync">
+            <summary>
+            Restores previously saved <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.  Any <see cref="T:System.Windows.Controls.Frame"/> instances
+            registered with <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> will also restore their prior navigation
+            state, which in turn gives their active <see cref="T:System.Windows.Controls.Page"/> an opportunity restore its
+            state.
+            </summary>
+            <returns>An asynchronous task that reflects when session state has been read.  The
+            content of <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/> should not be relied upon until this task
+            completes.</returns>
+        </member>
+        <member name="M:StyleMVVM.Suspension.FrameSuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)">
+            <summary>
+            Registers a <see cref="T:System.Windows.Controls.Frame"/> instance to allow its navigation history to be saved to
+            and restored from <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.  Frames should be registered once
+            immediately after creation if they will participate in session state management.  Upon
+            registration if state has already been restored for the specified key
+            the navigation history will immediately be restored.  Subsequent invocations of
+            <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RestoreAsync"/> will also restore navigation history.
+            </summary>
+            <param name="frame">An instance whose navigation history should be managed by
+            <see cref="T:StyleMVVM.Suspension.SuspensionManager"/></param>
+            <param name="sessionStateKey">A unique key into <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/> used to
+            store navigation-related information.</param>
+        </member>
+        <member name="M:StyleMVVM.Suspension.FrameSuspensionManager.UnregisterFrame(System.Windows.Controls.Frame)">
+            <summary>
+            Disassociates a <see cref="T:System.Windows.Controls.Frame"/> previously registered by <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/>
+            from <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.  Any navigation state previously captured will be
+            removed.
+            </summary>
+            <param name="frame">An instance whose navigation history should no longer be
+            managed.</param>
+        </member>
+        <member name="M:StyleMVVM.Suspension.FrameSuspensionManager.SessionStateForFrame(System.Windows.Controls.Frame)">
+            <summary>
+            Provides storage for session state associated with the specified <see cref="T:System.Windows.Controls.Frame"/>.
+            Frames that have been previously registered with <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RegisterFrame(System.Windows.Controls.Frame,System.String)"/> have
+            their session state saved and restored automatically as a part of the global
+            <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.  Frames that are not registered have transient state
+            that can still be useful when restoring pages that have been discarded from the
+            navigation cache.
+            </summary>
+            <remarks>Apps may choose to rely on <see cref="!:LayoutAwarePage"/> to manage
+            page-specific state instead of working with frame session state directly.</remarks>
+            <param name="frame">The instance for which session state is desired.</param>
+            <returns>A collection of state subject to the same serialization mechanism as
+            <see cref="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState"/>.</returns>
+        </member>
+        <member name="P:StyleMVVM.Suspension.FrameSuspensionManager.SessionState">
+            <summary>
+            Provides access to global session state for the current session.  This state is
+            serialized by <see cref="!:SuspendAsync"/> and restored by
+            <see cref="M:StyleMVVM.Suspension.FrameSuspensionManager.RestoreAsync"/>, so values must be serializable by
+            <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> and should be as compact as possible.  Strings
+            and other self-contained data types are strongly recommended.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Suspension.FrameSuspensionManager.KnownTypes">
+            <summary>
+            List of custom types provided to the <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> when
+            reading and writing session state.  Initially empty, additional types may be
+            added to customize the serialization process.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Utilities.ObjectSerializationHelper">
+            <summary>
+            This class provides serialization helpers that user the Json Data Contract serializer.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.Validation.Impl.ValidationService.RegisterExport(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Register ValidationService with DI container.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.DelegateCommand">
+            <summary>
+            A general implementation of ICommand used by ViewModels to bind to commands and events
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.EventCommand">
+            <summary>
+            This class can be used with Attached Event Commands as a handler. The benifit of using this class
+            over DelegateCommand is that AEC is designed to send the sender,args and parameter to Execute
+            where as DelegateCommand works with ICommand and only sends the parameter
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IEventCommand">
+            <summary>
+            This interface is similar to ICommand only it passes the sender, args, and parameter
+            it can't be used in Command="{Binding }" statements but rather with
+            the AttachedEventCommand class
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.IEventCommand.Execute(System.Object,System.Object,System.Object)">
+            <summary>
+            Execute the command with the sender, args, and parameter
+            </summary>
+            <param name="sender">the event sender</param>
+            <param name="args">event args</param>
+            <param name="parameter">the bound parameter in AttachedEventCommand</param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.Impl.ViewModelDataContextBinder">
+            <summary>
+            This class binds the ViewModel to the View.Data context property
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IViewModelBinder">
+            <summary>
+            Any class that implements and export this interface will be included in the ViewModel binding process
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.IViewModelBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            This method will be called each time a ViewModel is being bound to a View
+            </summary>
+            <param name="frameworkElement">View object</param>
+            <param name="viewModel">ViewModel object</param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.IViewModelBinder.UnbindViewModelFromView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            This method is called to unbind a ViewModel (Only happens when the ViewModel.Name property is changed after a view is constructed)
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelDataContextBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            Bind the ViewModel to the View's DataContext
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelDataContextBinder.UnbindViewModelFromView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            Remove the ViewModel from the View's DataContext
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:StyleMVVM.ViewModel.Impl.ViewModelLoadedBinder" -->
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelLoadedBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the viewmodel implements ILoadedAwareViewModel interfacce then event handlers are connected to the View 
+            and fire the Loaded and Unloaded handlers on the ViewModel
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.Impl.ViewModelNavigationBinder">
+            <summary>
+            This class binds the navigation events of the view to the viewmodels Navigation handlers
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelNavigationBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the view implements INavigatingPage and the ViewModel implements the INavigationViewModel interface
+            then event handlers will be hooked up to the View's navigations events
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelNavigationBinder.UnbindViewModelFromView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the view implements INavigatingPage and the ViewModel implements the INavigationViewModel interface
+            then event handlers will be removed from the View's navigations events
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.Impl.ViewModelParentDataContextBinder">
+            <summary>
+            This class bind the Parents View's DataContext to the current ViewModel
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelParentDataContextBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the viewModel implements the IParentDataContextAwareViewModel interface then the Parent View's DataContext
+            will be set to the ViewModel.ParentDataContext property at view load time
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelParentDataContextBinder.UnbindViewModelFromView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            if the view model implements the IParentDataContextAwareViewModel interface then the parents view will be disconnected.
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.Impl.ViewModelResolutionService">
+            <summary>
+            This class is responsible or resolving and binding all viewmodels
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IViewModelResolutionService">
+            <summary>
+            The IViewModelResolutionService is responsible for resolving and binding viewmodels to views.
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.IViewModelResolutionService.ResolveViewModel(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            This method resolves a viewmodel for a view and binds it.
+            </summary>
+            <param name="view"></param>
+            <param name="viewModelName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelResolutionService.RegisterExport(StyleMVVM.DependencyInjection.IDependencyInjectionContainer)">
+            <summary>
+            Export this class as an IViewModelResolutionService
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelResolutionService.ImportBinders(System.Collections.Generic.IEnumerable{StyleMVVM.ViewModel.IViewModelBinder})">
+            <summary>
+            Import all known model binders, called during activation
+            </summary>
+            <param name="binderCollection">all known model binders</param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelResolutionService.ResolveViewModel(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Creates and Binds a viewmodel to a view
+            </summary>
+            <param name="view">view to bind to</param>
+            <param name="viewModelName">name of the view model to bind to</param>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.Impl.ViewModelResolutionService.Container">
+            <summary>
+            Container to use for resolving models
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.Impl.ViewModelViewAwareBinder">
+            <summary>
+            This class binds the View property for IViewAware interface when implemented in a ViewModel
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelViewAwareBinder.BindViewModelToView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the viewmodel implements IViewAware then the View property is set.
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:StyleMVVM.ViewModel.Impl.ViewModelViewAwareBinder.UnbindViewModelFromView(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            If the view model implements IViewAware then the View property is unset
+            </summary>
+            <param name="frameworkElement"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="T:StyleMVVM.ViewModel.IParentDataContextAwareViewModel">
+            <summary>
+            ViewModels that wish to know what the data context is for the parent view can implement this interface and ParentDataContext will
+            be populated when the view is loaded into the visual tree.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.ViewModel.IParentDataContextAwareViewModel.ParentDataContext">
+            <summary>
+            The Data Context associated with the parent View for this view model
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.CharmOrientation">
+            <summary>
+            This enumeration defines the different ways the charm can be oriented to the screen
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.ICharmInfo">
+            <summary>
+            Classes that implement and export this interface will be used to create Setting Pane configuration
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.CharmId">
+            <summary>
+            This is the unique id the charm will be known by (incase you want to activate it indepent of the setting pane)
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.ExportName">
+            <summary>
+            This is the name of the View to use when the charm is activated (usually a View that inherits from CharmControl)
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.SettingsText">
+            <summary>
+            This is the text that is displayed in the setting pane
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.ShowInAppSettings">
+            <summary>
+            This property specifies if the charm should be listed in the Settings Pane (true by default)
+            Note: This called each time the Settings Pane is opened
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.CharmSize">
+            <summary>
+            This is either the width or height of the Charm based upon orientation
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.Orientation">
+            <summary>
+            This is the orientation of the charm by default it is CharmOrientation
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.ICharmInfo.TransitionPopup">
+            <summary>
+            This specifies if the popup should transition its content. (false by default)
+            For Settings charm it is recommended that this is false.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.ICharmService">
+            <summary>
+            This is the service that controls the creation of the settings pane and activates charms
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.RegisterCharmNotify(System.String,StyleMVVM.View.CharmNotification)">
+            <summary>
+            Creates a new entry in the Settings Pane and invokes notification delegate upon user selection
+            </summary>
+            <param name="charmName">display string for charm</param>
+            <param name="notification">charm callback</param>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.RegisterCharmNotify(System.String,StyleMVVM.View.CharmNotification,StyleMVVM.View.ShowCharm)">
+            <summary>
+            Creates a new entry in the SettingsPane and invokes notification delegate upon user selection
+            </summary>
+            <param name="charmName">display string for the charm</param>
+            <param name="notification">callback delegate for when the user select the charm</param>
+            <param name="showCharm">delegate allows you to enable and disable charm at the point when the SettingsPane is shown</param>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.UnRegisterCharmNotify(System.String)">
+            <summary>
+            Removes the charm specified from the SettingsPabe
+            </summary>
+            <param name="charmName"></param>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.OpenCharm(System.String)">
+            <summary>
+            Opens a new charm of the specified name
+            </summary>
+            <param name="charmName"></param>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.OpenCharm(System.String,System.Object)">
+            <summary>
+            Opens a new charm of the specified name
+            </summary>
+            <param name="charmName"></param>
+            <param name="navigationParameter"></param>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.Back">
+            <summary>
+            Move back in the charm stack (if ther are no more in the stack then SettingsPane is opened)
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.ICharmService.CloseCharm">
+            <summary>
+            Close the open charm
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.IFilePickerService">
+            <summary>
+            The IFilePickerService acts as a wrapper around the default file picker class
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.IFilePickerService.PickMultipleFilesAsync(Windows.Storage.Pickers.PickerLocationId,System.String[])">
+            <summary>
+            Opens a file picker and allows the user to pick multiple files and return a list of the files the user chose
+            </summary>
+            <param name="location"></param>
+            <param name="filterTypes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.View.IFilePickerService.PickFileAsync(Windows.Storage.Pickers.PickerLocationId,System.String[])">
+            <summary>
+            Opens a file picker and allows the user to pick one file and returns a StorageFile to the caller
+            </summary>
+            <param name="location"></param>
+            <param name="filterTypes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.View.IMessageBoxService">
+            <summary>
+            This service gives you easy access to the MessageDialog class as well as creates IMessageDialog wrappers
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.IMessageBoxService.Notify(System.String)">
+            <summary>
+            Opens a message box to the user with just the ok button
+            </summary>
+            <param name="message">message to display to the user</param>
+        </member>
+        <member name="M:StyleMVVM.View.IMessageBoxService.Notify(System.String,System.String)">
+            <summary>
+            Opens a message box to the user with just the ok button
+            </summary>
+            <param name="message">message to display to the user</param>
+            <param name="title">title on the message box</param>
+        </member>
+        <member name="M:StyleMVVM.View.IMessageBoxService.Show(System.String)">
+            <summary>
+            Show a new message dialog
+            </summary>
+            <param name="message"></param>
+            <returns>returns the command clicked</returns>
+        </member>
+        <member name="M:StyleMVVM.View.IMessageBoxService.ShowSystemMessageBox(System.String)">
+            <summary>
+            Show a new message dialog
+            </summary>
+            <param name="message"></param>
+            <returns>returns the command clicked</returns>
+        </member>
+        <member name="M:StyleMVVM.View.IMessageBoxService.ShowSystemMessageBox(System.String,System.String,StyleMVVM.View.SystemMessageBoxButton)">
+            <summary>
+            Show a new message dialog with the specified title and commands
+            </summary>
+            <param name="message">message to display</param>
+            <param name="title">title for the message dialog</param>
+            <param name="commands">command to show in the dialog</param>
+            <returns>returns the command that was clicked</returns>
+        </member>
+        <member name="T:StyleMVVM.View.Impl.FauxNavigationService">
+            <summary>
+            This is a 
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.INavigationService">
+            <summary>
+            Represents an object that can Navigate a frame within the app.
+            At Runtime this just wraps a Frame class, at UnitTest Time this is 
+            substituted for something else
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.GoHome">
+            <summary>
+            Navigate Home if possible
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.GoBack">
+            <summary>
+            Navigate Back if possible
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.GoForward">
+            <summary>
+            Navigate forward if possible
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.Navigate(System.Uri)">
+            <summary>
+            Navigate to a new page base on Uri (this is the only supported method in the Windows Phone Frame control)
+            </summary>
+            <param name="pageName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.OpenOverlay(System.String)">
+            <summary>
+            Open an overlay on a Page
+            </summary>
+            <param name="overlayName">export name of overlay</param>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.OpenOverlay(System.String,System.Object)">
+            <summary>
+            Open an overlay on a Page
+            </summary>
+            <param name="overlayName">export name of overlay</param>
+            <param name="context"> </param>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.ReplaceOverlay(System.String)">
+            <summary>
+            Replace the current overlay with a new overlay
+            </summary>
+            <param name="newOverlayName"></param>
+            <param name="context"> </param>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.ReplaceOverlay(System.String,System.Object)">
+            <summary>
+            Replace the current overlay with a new overlay
+            </summary>
+            <param name="newOverlayName"></param>
+            <param name="context"> </param>
+        </member>
+        <member name="M:StyleMVVM.View.INavigationService.CloseOverlay">
+            <summary>
+            Close the current overlay
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.INavigationService.IsValid">
+            <summary>
+            Is the navigation service currently valid
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.INavigationService.CanGoBack">
+            <summary>
+            Can the service navigate back
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.INavigationService.CanGoForward">
+            <summary>
+            Can the service navigate forward
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.View.INavigationService.OverlayOpen">
+            <summary>
+            Is there an open overlay on this page
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.Impl.NavigationService">
+            <summary>
+            Default implementation of INavigationService
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.IUIVisualizationService">
+            <summary>
+            The UIVisualization Service offers the ability to open popups and popup menus
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Opens a popup View over the specified FrameworkElement
+            </summary>
+            <param name="control"></param>
+            <param name="viewName"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.FrameworkElement,System.String,System.Object)">
+            <summary>
+            Opens a new Popup View over the specified FrameworkElement using the supplied navigation parameter
+            </summary>
+            <param name="control"></param>
+            <param name="viewName"></param>
+            <param name="navigationParameter"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.FrameworkElement,System.String,System.Object,System.Boolean,StyleMVVM.Data.ICancellationToken,StyleMVVM.View.RelativePosition,System.Windows.Point)">
+            <summary>
+            Opens a new Popup View and allows you to control all aspects of how the popup is opened
+            </summary>
+            <param name="control"></param>
+            <param name="viewName"></param>
+            <param name="navigationParameter"></param>
+            <param name="isLightDismissEnabled"></param>
+            <param name="cancellationToken"></param>
+            <param name="position"></param>
+            <param name="offset"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.Point,System.String)">
+            <summary>
+            Opens a new poup at the specified point
+            </summary>
+            <param name="point"></param>
+            <param name="viewName"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.Point,System.String,System.Object)">
+            <summary>
+            Opens a new Popup at the specified point using the provided navigation parameter
+            </summary>
+            <param name="point"></param>
+            <param name="viewName"></param>
+            <param name="navigationParameter"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.Popup(System.Windows.Point,System.String,System.Object,System.Boolean,StyleMVVM.Data.ICancellationToken)">
+            <summary>
+            Opens a new Popup allowing the caller to control all aspects of how the popup is opened
+            </summary>
+            <param name="point"></param>
+            <param name="viewName"></param>
+            <param name="navigationParameter"></param>
+            <param name="isLightDismissEnabled"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.PopupMenu(System.Windows.FrameworkElement,System.String[])">
+            <summary>
+            Opens a new popup menu over the specified control
+            </summary>
+            <param name="control"></param>
+            <param name="menuOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.PopupMenu(System.Windows.FrameworkElement,StyleMVVM.View.RelativePosition,System.Windows.Point,System.String[])">
+            <summary>
+            Opens a new popup menu relative the provided FrameworkElement
+            </summary>
+            <param name="control"></param>
+            <param name="position"></param>
+            <param name="offset"></param>
+            <param name="menuOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StyleMVVM.View.IUIVisualizationService.PopupMenu(System.Windows.Point,System.String[])">
+            <summary>
+            Opens a new popup menu at the provided spot with the specified menu options
+            </summary>
+            <param name="point"></param>
+            <param name="menuOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StyleMVVM.View.INavigatingPage">
+            <summary>
+            This interface needs to be implemented in a Page if the viewmodel 
+            is to have full navigation access.
+            </summary>
+        </member>
+        <member name="E:StyleMVVM.View.INavigatingPage.NavigatedTo">
+            <summary>
+            NavigatedTo event that is called when Page calls OnNavigatedTo
+            </summary>
+        </member>
+        <member name="E:StyleMVVM.View.INavigatingPage.NavigatedFrom">
+            <summary>
+            NavigatedFrom event that is called when Page calls OnNavigatedFrom
+            </summary>
+        </member>
+        <member name="E:StyleMVVM.View.INavigatingPage.NavigatingFrom">
+            <summary>
+            NavigatingFrom event that is called when Page calls OnNavigatingFrom
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.Region">
+            <summary>
+            This class is to help bind XAML and the Region Manager.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.Regions.BaseRegion">
+            <summary>
+            This is the base implementation of IRegion.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.SystemMessageBoxButton">
+            <summary>
+            This enumeration represents the possible buttons you can use for a system message box.
+            Note: Windows Phone 8 only offers Ok and OkCancel.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:StyleMVVM.View.SystemMessageBoxResult" -->
+        <member name="T:StyleMVVM.View.ViewModel">
+            <summary>
+            This class offers Dependency properties that allow you to bind a ViewModel
+            to a Views DataContext by setting the Name property in XAML
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.ViewModel.GetName(System.Windows.DependencyObject)">
+            <summary>
+            Gets the name of the ViewModel for the specified view
+            </summary>
+            <param name="obj">the view</param>
+            <returns>the ViewModel Name</returns>
+        </member>
+        <member name="M:StyleMVVM.View.ViewModel.SetName(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the ViewModel name for the provided View
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:StyleMVVM.View.ViewModel.InternalNameProperty">
+            <summary>
+            Assigns a ViewModel Name to a View and is the Linkage that connects the
+            ViewModel to the Views data context (Done at name change)
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Strings.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Strings.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Strings.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Strings.Resources.CancelString">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Strings.Resources.OkString">
+            <summary>
+              Looks up a localized string similar to Ok.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.Validation.Impl.Fluent.FluentResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.And">
+            <summary>
+              Looks up a localized string similar to and.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.CannotBeEmpty">
+            <summary>
+              Looks up a localized string similar to {0} cannot be empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.CannotBeNull">
+            <summary>
+              Looks up a localized string similar to {0} cannot be null.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Ceiling">
+            <summary>
+              Looks up a localized string similar to {0} ceiling.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.DividedBy">
+            <summary>
+              Looks up a localized string similar to {0} divided by {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.EndsWith">
+            <summary>
+              Looks up a localized string similar to {0} ends with {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Floor">
+            <summary>
+              Looks up a localized string similar to {0} floor.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IfThenElseMessage">
+            <summary>
+              Looks up a localized string similar to If {0} then {1} else {2}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IfThenMessage">
+            <summary>
+              Looks up a localized string similar to If {0} then {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IndexOf">
+            <summary>
+              Looks up a localized string similar to {0} index of {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsEmpty">
+            <summary>
+              Looks up a localized string similar to {0} is empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} is equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsFalse">
+            <summary>
+              Looks up a localized string similar to {0} is false.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsFalseOrNull">
+            <summary>
+              Looks up a localized string similar to {0} is false or empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsGreaterThan">
+            <summary>
+              Looks up a localized string similar to {0} is greater than {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsGreaterThanOrEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} is greater than or equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsLessThan">
+            <summary>
+              Looks up a localized string similar to {0} is less than {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsLessThanOrEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} is less than or equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsNotEmpty">
+            <summary>
+              Looks up a localized string similar to {0} is not empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsNotNull">
+            <summary>
+              Looks up a localized string similar to {0} is not null.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsNull">
+            <summary>
+              Looks up a localized string similar to {0} is empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsRequired">
+            <summary>
+              Looks up a localized string similar to {0} must not be empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsTrue">
+            <summary>
+              Looks up a localized string similar to {0} is true.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.IsTrueOrNull">
+            <summary>
+              Looks up a localized string similar to {0} is true or empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.LastIndexOf">
+            <summary>
+              Looks up a localized string similar to {0} last index of {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MestBeLessThan">
+            <summary>
+              Looks up a localized string similar to {0} must be less than {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Minus">
+            <summary>
+              Looks up a localized string similar to {0} minus {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Modules">
+            <summary>
+              Looks up a localized string similar to {0} modules {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeEmpty">
+            <summary>
+              Looks up a localized string similar to {0} must be empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} must be equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeFalse">
+            <summary>
+              Looks up a localized string similar to {0} must be false.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeFalseOrNull">
+            <summary>
+              Looks up a localized string similar to {0} must be false or empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeGreaterThan">
+            <summary>
+              Looks up a localized string similar to {0} must be greater than {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeGreaterThanOrEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} must be greater than or equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeLessThanOrEqualTo">
+            <summary>
+              Looks up a localized string similar to {0} must be less than or equal to {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeNull">
+            <summary>
+              Looks up a localized string similar to {0} must be empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeTrue">
+            <summary>
+              Looks up a localized string similar to {0} must be true.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.MustBeTrueOrNull">
+            <summary>
+              Looks up a localized string similar to {0} must be true or empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.NotEmpty">
+            <summary>
+              Looks up a localized string similar to {0} is not empty.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Or">
+            <summary>
+              Looks up a localized string similar to or.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Plus">
+            <summary>
+              Looks up a localized string similar to {0} plus {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Regex">
+            <summary>
+              Looks up a localized string similar to {0} matches pattern {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Split">
+            <summary>
+              Looks up a localized string similar to {0} split {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.StartsWith">
+            <summary>
+              Looks up a localized string similar to {0} starts with {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.Times">
+            <summary>
+              Looks up a localized string similar to {0} times {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.ToLower">
+            <summary>
+              Looks up a localized string similar to {0}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.ToUpper">
+            <summary>
+              Looks up a localized string similar to {0}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.UnlessMessage">
+            <summary>
+              Looks up a localized string similar to {0} unless {1}.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.When">
+            <summary>
+              Looks up a localized string similar to when.
+            </summary>
+        </member>
+        <member name="P:StyleMVVM.Validation.Impl.Fluent.FluentResources.WhenMessage">
+            <summary>
+              Looks up a localized string similar to {0} when {1}.
+            </summary>
+        </member>
+        <member name="T:StyleMVVM.View.BasePhoneApplicationPage">
+            <summary>
+            This is the base page that all templates are based off
+            </summary>
+        </member>
+        <member name="M:StyleMVVM.View.BasePhoneApplicationPage.ListenDataContextPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Method raised when DataContext changed. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:StyleMVVM.View.BasePhoneApplicationPage.CurrentViewModel">
+            <summary>
+            Holds reference to injected INavigationViewModel
+            </summary>
+        </member>
+    </members>
+</doc>
